@@ -9,7 +9,7 @@ function Routes() {
         <BrowserRouter>
             <Switch>
                 <Route path="/cadastro" component={Cadastro} />
-                <Route path="/home" component={Home} />
+                <Route path="/" component={Home} />
                 <Route path="/login" component={Login} />
             </Switch>
         </BrowserRouter>

@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 653px;
+    
+    flex-grow: 1;
+}
+
+.base {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.ab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ac {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}

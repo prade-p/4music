@@ -1,0 +1,5 @@
+.footerContainer{
+    background: black;
+    display: flex;
+    flex-direction: row;
+}

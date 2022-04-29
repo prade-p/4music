@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    max-width: 653px;
+    
     
     flex-grow: 1;
 }
@@ -16,6 +16,7 @@
 .inputs {
     display: flex;
     flex-direction: column;
+    max-width: 650px;
 }
 
 .ab {

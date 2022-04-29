@@ -4,7 +4,7 @@ import { Card, Button } from "react-bootstrap";
 
 function Cadastro() {
     return (
-       <>
+        <div className="container">
         <h1>Produtos</h1>
         <Card style={{ width: '18rem' }}>
          <Card.Img variant="top" src="images\VIOLAO-GIANNINI-FK2-GOAL-EQ-NS_IMG1.png" />
@@ -15,7 +15,7 @@ function Cadastro() {
                 <Button variant="primary">Adicionar</Button>
                 </Card.Body>
             </Card>
-         </>
+        </div>
     )
 }
 

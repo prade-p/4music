@@ -18,7 +18,7 @@ function Login() {
   return (
     <div className="base">
       <div className="container">
-        <h1>Minha conta</h1>
+        <div className="mc">Minha conta</div>
         <p></p>
         <Form className="inputs">
           <p className="ab">Já é cadastrado? Faça seu login.</p>

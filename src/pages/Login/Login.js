@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const history = useHistory();
+
   function login() {
     console.log(email, password);
     if (email === "andreprocopio@cpejr.com.br" && password === "123") {
@@ -44,12 +45,16 @@ function Login() {
           <Button variant="primary" onClick={login}>
             Login
           </Button>
-          <div className="ac">
+
+          {/* <div className="ac">
             Ainda não é cadastro?
             <a href="/home" title="Home">
               <b>Registre-se aqui</b>
             </a>
-          </div>
+          </div> */}
+          <p className="cadastro"> 
+            Ainda não é cadastrado? <Link to="/cadastro">Registre-se</Link>
+          </p>
         </Form>
       </div>
     </div>

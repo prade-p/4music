@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
@@ -16,6 +16,10 @@ function Login() {
     } else alert("Dados incorretos!");
   }
 
+  /*return (
+
+  )*/
+
   return (
     <div className="base">
       <div className="container">
@@ -24,7 +28,7 @@ function Login() {
         <Form className="inputs">
           <p className="ab">Já é cadastrado? Faça seu login.</p>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Nome de usuário ou e-mail *</Form.Label>
+            <Form.Label>E-mail <font color="#fd1c1c">*</font></Form.Label>
             <Form.Control
               type="email"
               onChange={(e) => setEmail(e.target.value)}
@@ -33,28 +37,31 @@ function Login() {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Senha *</Form.Label>
+            <Form.Label>Senha <font color="#fd1c1c">*</font></Form.Label>
             <Form.Control
               type="password"
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
+
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Lembrar de mim" />
           </Form.Group>
-          <Button variant="primary" onClick={login}>
+
+          <Button variant="primary" className="loginBtn" onClick={login}>
             Login
           </Button>
 
-          {/* <div className="ac">
-            Ainda não é cadastro?
-            <a href="/home" title="Home">
-              <b>Registre-se aqui</b>
+          <p><div className="ac">
+            Ainda não é cadastro 
+            <a href="/cadastro" title="Cadastro">
+              <font color="#ff9f1c">
+                Registre-se aqui
+              </font>
             </a>
-          </div> */}
-          <p className="cadastro"> 
-            Ainda não é cadastrado? <Link to="/cadastro">Registre-se</Link>
-          </p>
+          </div></p>
+          
+
         </Form>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button} from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
 
@@ -13,12 +13,9 @@ function Login() {
     if (email === "andreprocopio@cpejr.com.br" && password === "123") {
       alert("Bem vindo!\n" + email);
       history.push("home");
-    } else alert("Dados incorretos!");
+    } else
+      alert("Dados incorretos!");
   }
-
-  /*return (
-
-  )*/
 
   return (
     <div className="base">
@@ -58,7 +55,7 @@ function Login() {
 
           <p>
             <div className="ac">
-              Ainda não é cadastro?
+              Ainda não é cadastrado?&nbsp;
               <a href="/cadastro" title="Cadastro">
                 <font color="#ff9f1c">Registre-se aqui</font>
               </a>

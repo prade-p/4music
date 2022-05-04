@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 10rem;
+    margin: 0 35rem;
 }
 
 .header-input-categorys {
@@ -41,11 +41,19 @@
     margin-bottom: 5px;
 }
 
+.categorys > a:hover {
+    color: #FF9F1C;
+}
+
 .header-profile {
     display: flex;
     justify-content: space-between;
     width: 125px;
     font-size: 2rem;
+}
+
+.header-profile > a:hover {
+    color: #FF9F1C;
 }
 
 .search-field {

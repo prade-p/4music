@@ -35,13 +35,14 @@
 
 .ac {
   display: flex;
-  font-family: "Montserrat";
+  font-family: "Inter";
   align-items: center;
   justify-content: center;
   margin-bottom: 46px;
   margin-top: 15px;
+  font-weight: 600;
 
-  font-family: 'Montserrat';
+  font-family: 'Inter';
   font-style: normal;
   font-size: 20px;
   line-height: 24px;
@@ -66,7 +67,7 @@
 .mb-3 {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 600;
   font-size: 18px;
   line-height: 24px;
 }
@@ -79,4 +80,9 @@
 
   font-family: 'Montserrat' !important;
   font-style: normal !important;
+}
+
+.form-control {
+  font-weight: 600 !important;
+  font-family: "Inter";
 }

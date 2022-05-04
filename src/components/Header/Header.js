@@ -9,13 +9,13 @@ export default function Header() {
     <div className="header">
       <div className="header-container">
         <div className="header-logo">
-          <img src={Logo} alt="logo" width={190} />
+          <img src={Logo} alt="logo" width={150} />
         </div>
         <div className="header-input-categorys">
           <div className="search-bar">
             <form action="/" method="GET" class="form">
               <input
-                type="search"
+                type="text"
                 placeholder="Digite aqui sua busca"
                 className="search-field"
               />

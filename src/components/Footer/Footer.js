@@ -1,6 +1,5 @@
 import "./Footer.css"
 import React from 'react'
-import { Link } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaWhatsapp } from "react-icons/fa";
 import { MdPhoneEnabled, MdEmail } from "react-icons/md"
 import Logo from "../../images/logo-removebg-preview.png"

@@ -1,22 +1,23 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 
-
 function Cadastro() {
-    return (
-        <div className="container">
-        <h1>Produtos</h1>
-        <Card style={{ width: '18rem' }}>
-         <Card.Img variant="top" src="images\VIOLAO-GIANNINI-FK2-GOAL-EQ-NS_IMG1.png" />
-            <Card.Body>
-                <Card.Text>
-            Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo
-                </Card.Text>
-                <Button variant="primary">Adicionar</Button>
-                </Card.Body>
-            </Card>
-        </div>
-    )
+  return (
+    <div>
+      <h1>Produtos</h1>
+      <Card style={{ width: "18rem" }}>
+        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Body>
+          <Card.Title>Card Title</Card.Title>
+          <Card.Text>
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </Card.Text>
+          <Button variant="primary">Go somewhere</Button>
+        </Card.Body>
+      </Card>
+    </div>
+  );
 }
 
 export default Cadastro;

@@ -28,7 +28,9 @@ function Login() {
         <Form className="inputs">
           <p className="ab">Já é cadastrado? Faça seu login.</p>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>E-mail <font color="#fd1c1c">*</font></Form.Label>
+            <Form.Label>
+              E-mail <font color="#fd1c1c">*</font>
+            </Form.Label>
             <Form.Control
               type="email"
               onChange={(e) => setEmail(e.target.value)}
@@ -37,7 +39,9 @@ function Login() {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Senha <font color="#fd1c1c">*</font></Form.Label>
+            <Form.Label>
+              Senha <font color="#fd1c1c">*</font>
+            </Form.Label>
             <Form.Control
               type="password"
               onChange={(e) => setPassword(e.target.value)}
@@ -52,16 +56,14 @@ function Login() {
             Login
           </Button>
 
-          <p><div className="ac">
-            Ainda não é cadastro 
-            <a href="/cadastro" title="Cadastro">
-              <font color="#ff9f1c">
-                Registre-se aqui
-              </font>
-            </a>
-          </div></p>
-          
-
+          <p>
+            <div className="ac">
+              Ainda não é cadastro?
+              <a href="/cadastro" title="Cadastro">
+                <font color="#ff9f1c">Registre-se aqui</font>
+              </a>
+            </div>
+          </p>
         </Form>
       </div>
     </div>

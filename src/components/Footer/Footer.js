@@ -72,36 +72,28 @@ export default function Footer () {
                         </div>         
                     </div>
                     <div className="social-media">
-                        <Link to="/home" aria-label='Facebook'> 
-                            <FaFacebook/>
-                        </Link>
-                        <Link to="/home" aria-label='Instagram'> 
-                            <FaInstagram/>
-                        </Link>
-                        <Link to="/home" aria-label='YouTube'> 
-                            <FaYoutube/>
-                        </Link>
-                        <Link to="/home" aria-label='Linkedin'> 
-                            <FaLinkedin/>
-                        </Link>
+                        <a href="/home" title="Facebook"><FaFacebook/></a>
+                        <a href="/home" title="Instagram"><FaInstagram/></a>
+                        <a href="/home" title="Youtube"><FaYoutube/></a>
+                        <a href="/home" title="Linkedin"><FaLinkedin/></a>
                     </div>
                 </div>
                 <div className="footer-links">
                     <div className="footer-wrapper">
                         <div className="wrapper-column">
                             <h2>Minha Conta</h2>
-                            <Link to="/login">Login</Link>
-                            <Link to="/cadastro">Cadastre-se</Link>
+                            <a href="/login" title="Login">Login</a>
+                            <a href="/cadastro" title="Cadastro">Cadastro</a>
                         </div>
                     </div>
                     <div className="footer-wrapper">
                         <div className="wrapper-column">
                             <h2>Categorias</h2>
-                            <Link to="/produtos">Teclas</Link>
-                            <Link to="/produtos">Cordas</Link>
-                            <Link to="/produtos">Áudio</Link>
-                            <Link to="/produtos">Percussão</Link>
-                            <Link to="/produtos">Sopro</Link>
+                            <a href="/produtos" title="Teclas">Teclas</a>
+                            <a href="/produtos" title="Cordas">Cordas</a>
+                            <a href="/produtos" title="Áudio">Áudio</a>
+                            <a href="/produtos" title="Percussão">Percussão</a>
+                            <a href="/produtos" title="Sopro"> Sopro</a>
                         </div>
                     </div>
                     <div className="footer-wrapper">

@@ -1,38 +1,57 @@
-import React from 'react'
-import "./Header.css"
-import Logo from "../../images/logo-removebg-preview.png"
-import { FaSistrix, FaBars } from "react-icons/fa";
+import React from "react";
+import "./Header.css";
+import Logo from "../../images/logo-removebg-preview.png";
 import { BsCart3, BsPerson } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import Lupa from "../../images/pesquisa.png"
 
 export default function Header() {
   return (
-    <div className='header'>
+    <div className="header">
       <div className="header-container">
         <div className="header-logo">
-          <img src={Logo} alt="logo" width={190}/>
+          <img src={Logo} alt="logo" width={190} />
         </div>
         <div className="header-input-categorys">
-          
           <div className="search-bar">
-            <input type="text" placeholder='Digite aqui sua busca' />
-            <FaSistrix/>
+            <form action="/" method="GET" class="form">
+              <input
+                type="search"
+                placeholder="Digite aqui sua busca"
+                className="search-field"
+              />
+              <button type="submit" className="search-button">
+                <img src={Lupa} alt="Lupa" />
+              </button>
+            </form>
           </div>
           <div className="categorys">
-            <Link to="/produtos">Teclas</Link>
-            <Link to="/produtos">Cordas</Link>
-            <Link to="/produtos">Áudio</Link>
-            <Link to="/produtos">Percussão</Link>
-            <Link to="/produtos">Sopro</Link>
+            <a href="/produtos" title="Teclas">
+              Teclas
+            </a>
+            <a href="/produtos" title="Cordas">
+              Cordas
+            </a>
+            <a href="/produtos" title="Áudio">
+              Áudio
+            </a>
+            <a href="/produtos" title="Percussão">
+              Percussão
+            </a>
+            <a href="/produtos" title="Sopro">
+              Sopro
+            </a>
           </div>
-
         </div>
 
         <div className="header-profile">
-          <BsPerson/>
-          <BsCart3/>
+          <a href="/cadastro" title="Profile" className="profile">
+            <BsPerson />
+          </a>
+          <a href="/produtos" title="Carrinho" className="carrinho">
+            <BsCart3 />
+          </a>
         </div>
       </div>
     </div>
-  )
+  );
 }

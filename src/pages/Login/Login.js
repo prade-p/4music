@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { Form, Button} from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import { Form, Button } from "react-bootstrap";
 import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const history = useHistory();
+  const [validacao, setValidacao] = useState();
 
   function login() {
     console.log(email, password);
     if (email === "andreprocopio@cpejr.com.br" && password === "123") {
-      alert("Bem vindo!\n" + email);
-      history.push("home");
+      window.location.href="/home";
+      setValidacao(true);
     } else
-      alert("Dados incorretos!");
+      //alert("Dados incorretos!");
+      setValidacao(false);
   }
 
   return (
@@ -24,6 +24,12 @@ function Login() {
         <p></p>
         <Form className="inputs">
           <p className="ab">Já é cadastrado? Faça seu login.</p>
+          {validacao===false &&
+            <div className="msgLoginError">
+              E-mail ou senha inválidos.
+              <p></p>
+            </div>
+          }
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>
               E-mail <font color="#fd1c1c">*</font>

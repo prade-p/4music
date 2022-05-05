@@ -72,6 +72,14 @@
   line-height: 24px;
 }
 
+.msgLoginError{
+  font-family: 'Inter';
+  font-style:inherit;
+  color: red;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
 
 .loginBtn {
   color: #fff !important;

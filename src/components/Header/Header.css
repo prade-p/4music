@@ -94,3 +94,34 @@
 .carrinho {
     color: #000;
 }
+
+.btn-icon-header {
+    width: 125px;
+    font-size: 2rem;
+    color: #000;
+    background: none;
+    border: none;
+    display: none;
+    font-family: "Montserrat";
+    font-weight: 600;
+}
+
+@media screen and (max-width: 1100px){
+    
+    .header-logo > img {
+        width: 20vh;
+    }
+
+    .btn-icon-header {
+        display: block;
+    }
+
+    .header-input-categorys {
+        display: none;
+    }
+
+    .header-profile {
+        display: none;
+    }
+
+}

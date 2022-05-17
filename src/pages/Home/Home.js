@@ -1,8 +1,11 @@
 import React from "react";
 import Grupo from "../../images/download.jpg";
 import Violão from "../../images/VIOLAO-GIANNINI-FK2-GOAL-EQ-NS_IMG1.png";
-import Coracao from "../../images/coracao.png";
+import { AiOutlineHeart } from "react-icons/ai";
+import { MdLocationOn } from "react-icons/md";
+import { BiTimeFive } from "react-icons/bi";
 import Localizacao from "../../images/loc.png";
+import Guitarra from "../../images/electric-guitar-1736292.jpg";
 import { Carousel } from "react-bootstrap";
 import "./Home.css";
 
@@ -11,30 +14,91 @@ function Home() {
     <div className="home-container">
       <div className="carousel-container">
         <Carousel>
-          <Carousel.Item interval={1000}>
-          <img src={Grupo} alt="nós" width={700} />
-            <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-            </Carousel.Caption>
+          <Carousel.Item interval={2000}>
+            <img className="d-block w-100" src={Guitarra} alt="First slide" />
+            <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={500}>
-          <img src={Grupo} alt="nós" width={700} />
-            <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </Carousel.Caption>
+          <Carousel.Item interval={2000}>
+            <img className="d-block w-100" src={Guitarra} alt="Second slide" />
+            <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item>
-          <img src={Grupo} alt="nós" width={700} />
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-              </p>
-            </Carousel.Caption>
+          <Carousel.Item interval={2000}>
+            <img className="d-block w-100" src={Guitarra} alt="Third slide" />
+            <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
         </Carousel>
+      </div>
+      <div className="promocoes-container">
+        <div className="title-destaques">Destaques</div>
+        <div className="line-title"> </div>
+        <div className="produtos-destaque">
+        <Carousel>
+  <Carousel.Item interval={1000}>
+  <div className="card">
+            <div className="button-wishlist">
+              <button type="button">
+                <AiOutlineHeart size={27} />
+              </button>
+            </div>
+            <div className="card-images">
+              <img src={Violão} alt="casa" width={250} />
+            </div>
+            <div className="card-text">
+              <p>
+                Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
+                Gonçalo
+              </p>
+            </div>
+            <div>
+              <button className="card-button">Adicionar</button>
+            </div>
+          </div>
+  </Carousel.Item>
+  <Carousel.Item interval={500}>
+  <div className="card">
+            <div className="button-wishlist">
+              <button type="button">
+                <AiOutlineHeart size={27} />
+              </button>
+            </div>
+            <div className="card-images">
+              <img src={Violão} alt="casa" width={250} />
+            </div>
+            <div className="card-text">
+              <p>
+                Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
+                Gonçalo
+              </p>
+            </div>
+            <div>
+              <button className="card-button">Adicionar</button>
+            </div>
+          </div>
+  </Carousel.Item>
+  <Carousel.Item>
+  <div className="card">
+            <div className="button-wishlist">
+              <button type="button">
+                <AiOutlineHeart size={27} />
+              </button>
+            </div>
+            <div className="card-images">
+              <img src={Violão} alt="casa" width={250} />
+            </div>
+            <div className="card-text">
+              <p>
+                Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
+                Gonçalo
+              </p>
+            </div>
+            <div>
+              <button className="card-button">Adicionar</button>
+            </div>
+          </div>
+  </Carousel.Item>
+</Carousel>
+
+        </div>
       </div>
       <div className="historia-container">
         <div className="text-historia">
@@ -56,98 +120,28 @@ function Home() {
           <img src={Grupo} alt="nós" width={700} />
         </div>
       </div>
-      <div className="promocoes-container">
-        <div className="title-destaques">Destaques</div>
-        <div className="line-title"> </div>
-        <div className="produtos-destaque">
-          <div className="card">
-            <div className="button-wishlist">
-              <button type="button" className="coracao">
-                <img src={Coracao} alt="Quero!" width={25} />
-              </button>
-            </div>
-            <div className="card-images">
-              <img src={Violão} alt="casa" width={250} />
-            </div>
-            <div className="card-text">
-              <p>
-                {" "}
-                Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                Gonçalo{" "}
-              </p>
-            </div>
-            <div>
-              <button className="card-button">Adicionar</button>
-            </div>
-          </div>
-          <div className="card">
-            <div className="button-wishlist">
-              <button type="button" className="coracao">
-                <img src={Coracao} alt="Quero!" width={25} />
-              </button>
-            </div>
-            <div className="card-images">
-              <img src={Violão} alt="casa" width={250} />
-            </div>
-            <div className="card-text">
-              <p>
-                {" "}
-                Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                Gonçalo{" "}
-              </p>
-            </div>
-            <div>
-              <button className="card-button">Adicionar</button>
-            </div>
-          </div>
-          <div className="card">
-            <div className="button-wishlist">
-              <button type="button" className="coracao">
-                <img src={Coracao} alt="Quero!" width={25} />
-              </button>
-            </div>
-            <div className="card-images">
-              <img src={Violão} alt="casa" width={250} />
-            </div>
-            <div className="card-text">
-              <p>
-                {" "}
-                Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                Gonçalo{" "}
-              </p>
-            </div>
-            <div>
-              <button className="card-button">Adicionar</button>
-            </div>
-          </div>
-          <div className="card">
-            <div className="button-wishlist">
-              <button type="button" className="coracao">
-                <img src={Coracao} alt="Quero!" width={25} />
-              </button>
-            </div>
-            <div className="card-images">
-              <img src={Violão} alt="casa" width={250} />
-            </div>
-            <div className="card-text">
-              <p>
-                {" "}
-                Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                Gonçalo
-              </p>
-            </div>
-            <div>
-              <button className="card-button">Adicionar</button>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="localizacao-container">
         <div className="image-localizacao">
           <img src={Localizacao} alt="nós" width={700} />
         </div>
         <div className="text-localizacao">
-          <div> Rua da Harmônia, 111, Sinfônica Belo Horizonte - MG</div>
+          <div>
+            <MdLocationOn size={30} color="#FF9F1C" /> | Rua da Harmônia, 111,
+            Sinfônica Belo Horizonte - MG
+          </div>
+          <div className="horarios">
+            <div>
+              <BiTimeFive size={30} color="#FF9F1C" /> | Segunda a Sexta:{" "}
+            </div>
+            <div className="horas"> 08H - 18H </div>
+          </div>
+          <div className="horarios">
+            <div>
+              {" "}
+              <BiTimeFive size={30} color="#FF9F1C" /> | Sábado:{" "}
+            </div>
+            <div className="horas"> 08H - 14H </div>
+          </div>
         </div>
       </div>
     </div>
@@ -155,3 +149,24 @@ function Home() {
 }
 
 export default Home;
+
+/* 
+<div className="card">
+            <div className="button-wishlist">
+              <button type="button">
+                <AiOutlineHeart size={27} />
+              </button>
+            </div>
+            <div className="card-images">
+              <img src={Violão} alt="casa" width={250} />
+            </div>
+            <div className="card-text">
+              <p>
+                Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
+                Gonçalo
+              </p>
+            </div>
+            <div>
+              <button className="card-button">Adicionar</button>
+            </div>
+          </div> */

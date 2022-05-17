@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Produtos from "./pages/Produtos"
 import Header from "./components/Header"
 import Footer from "./components/Footer";
+import Perfil from "./pages/Perfil/Perfil";
 
 function Routes() {
     return(
@@ -16,6 +17,7 @@ function Routes() {
                 <Route path="/home" component={Home} />
                 <Route path="/login" component={Login} />
                 <Route path="/produtos" component={Produtos} />
+                <Route path="/perfil" component={Perfil} />
             </Switch>
         <Footer/>
         </BrowserRouter>

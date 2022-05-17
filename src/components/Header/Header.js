@@ -44,7 +44,7 @@ export default function Header() {
         </div>
 
         <div className="header-profile">
-          <a href="/cadastro" title="Profile" className="profile">
+          <a href="/login" title="Profile" className="profile">
             <BsPerson />
           </a>
           <a href="/produtos" title="Carrinho" className="carrinho">

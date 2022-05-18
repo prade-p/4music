@@ -5,10 +5,18 @@
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 35rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 70%;
+  max-width: 1410px;
+  margin-inline: auto;
+}
+
+.header-logo > img{
+  height: 100%;
+  width: 28vh;
 }
 
 .header-input-categorys {
@@ -85,4 +93,10 @@
 
 .carrinho {
     color: #000;
+}
+
+@media screen and (max-width: 1100px){
+  .header-input-categorys {
+    display: none;
+  }
 }

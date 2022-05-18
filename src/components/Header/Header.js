@@ -9,7 +9,7 @@ export default function Header() {
     <div className="header">
       <div className="header-container">
         <div className="header-logo">
-          <img src={Logo} alt="logo" width={150} />
+          <img src={Logo} alt="logo" />
         </div>
         <div className="header-input-categorys">
           <div className="search-bar">

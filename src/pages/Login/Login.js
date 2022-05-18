@@ -24,7 +24,7 @@ function Login() {
         <p></p>
         <Form className="inputs">
           <p className="ab">Já é cadastrado? Faça seu login.</p>
-          {validacao===false &&
+          {validacao === false &&
             <div className="msgLoginError">
               E-mail ou senha inválidos.
               <p></p>

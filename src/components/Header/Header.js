@@ -1,19 +1,35 @@
 import React from "react";
 import "./Header.css";
 import Logo from "../../images/logo-removebg-preview.png";
-import { BsCart3, BsPerson } from "react-icons/bs";
-import Lupa from "../../images/pesquisa.png"
+import { BsCart3, BsPerson,} from "react-icons/bs";
+import { Dropdown } from "react-bootstrap";
+import Lupa from "../../images/pesquisa.png";
 
 export default function Header() {
   return (
-    <div className="header">
+    <div className="header" id="header">
       <div className="header-container">
         <div className="header-logo">
           <img src={Logo} alt="logo" />
         </div>
+        <Dropdown className="btn-icon-header">
+          <Dropdown.Toggle variant="warning" id="dropdown-basic">
+           Produtos
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="/login">Login</Dropdown.Item>
+            <Dropdown.Item href="/produtos">Carrinho</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item href="/produtos">Teclas</Dropdown.Item>
+            <Dropdown.Item href="/produtos">Cordas</Dropdown.Item>
+            <Dropdown.Item href="/produtos">Áudio</Dropdown.Item>
+            <Dropdown.Item href="/produtos">Percussão</Dropdown.Item>
+            <Dropdown.Item href="/produtos">Sopro</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         <div className="header-input-categorys">
           <div className="search-bar">
-            <form action="/" method="GET" class="form">
+            <form action="/" method="GET" className="form">
               <input
                 type="text"
                 placeholder="Digite aqui sua busca"
@@ -44,7 +60,7 @@ export default function Header() {
         </div>
 
         <div className="header-profile">
-          <a href="/cadastro" title="Profile" className="profile">
+          <a href="/login" title="Profile" className="profile">
             <BsPerson />
           </a>
           <a href="/produtos" title="Carrinho" className="carrinho">

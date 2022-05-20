@@ -50,11 +50,7 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Lembrar de mim" />
-          </Form.Group>
-
+          <p></p>
           <Button variant="primary" className="loginBtn" onClick={login}>
             Login
           </Button>

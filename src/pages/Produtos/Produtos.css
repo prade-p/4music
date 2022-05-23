@@ -27,7 +27,7 @@
 
 .produtos-card-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     margin-top: 5vh;
     margin-bottom: 12vh;
@@ -53,7 +53,8 @@
     font-family: "Inter";
     font-weight: 600;
     text-align: center;
-    
+    max-width: 10vw;
+    margin: 1vw;
 }
 
 .card-button {
@@ -84,7 +85,7 @@
     color: red; 
 }
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1200px){
     
     .produtos-info {
         display: flex;

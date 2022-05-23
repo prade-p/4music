@@ -1,7 +1,8 @@
 import React from "react";
 import "./Header.css";
 import Logo from "../../images/logo-removebg-preview.png";
-import { BsCart3, BsPerson,} from "react-icons/bs";
+import { BsPerson } from "react-icons/bs";
+import { MdLogout } from "react-icons/md";
 import { Dropdown } from "react-bootstrap";
 import Lupa from "../../images/pesquisa.png";
 
@@ -10,7 +11,9 @@ export default function Header() {
     <div className="header" id="header">
       <div className="header-container">
         <div className="header-logo">
-          <img src={Logo} alt="logo" />
+          <a href="/home" className="header-logo" title="Home">
+            <img src={Logo} alt="logo" width={250} />
+          </a>
         </div>
         <Dropdown className="btn-icon-header">
           <Dropdown.Toggle variant="warning" id="dropdown-basic">
@@ -18,7 +21,7 @@ export default function Header() {
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item href="/login">Login</Dropdown.Item>
-            <Dropdown.Item href="/produtos">Carrinho</Dropdown.Item>
+            <Dropdown.Item href="/home">Logout</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item href="/produtos">Teclas</Dropdown.Item>
             <Dropdown.Item href="/produtos">Cordas</Dropdown.Item>
@@ -63,8 +66,8 @@ export default function Header() {
           <a href="/login" title="Profile" className="profile">
             <BsPerson />
           </a>
-          <a href="/produtos" title="Carrinho" className="carrinho">
-            <BsCart3 />
+          <a href="/home" title="LogOut" className="logout">
+            <MdLogout />
           </a>
         </div>
       </div>

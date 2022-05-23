@@ -3,37 +3,7 @@ import "./Cadastro.css"
 import FormInput from "../../components/FormInput";
 import TextAreaInput from "../../components/TextAreaInput";
 import SelectInput from "../../components/SelectInput";
-
-const axios = require("axios");
-const uuid = require("uuid");
-const BASE_URL = "https://servicodados.ibge.gov.br/api/v1";
-
-const sortByLabelCompare = (a, b) => {
-    return a.label.localeCompare(b.label);
-}
-
-const parseState = (state) => {
-    return {label: state.nome, value: state.sigla};
-}
-const fetchStates = () => {
-    const url = `${BASE_URL}/localidades/estados`;
-    return axios.get(url)
-    .then(res => res.data)
-    .then(data => {return data.map(parseState)})
-    .then(data => {return data.sort(sortByLabelCompare)});
-}
-
-const parseCity = (city) => {
-    return {label: city.nome, value: city.nome};
-} 
-
-const fetchCitiesByState = (uf) => {
-    const url = `${BASE_URL}/localidades/estados/${uf}/municipios`;
-    return axios.get(url)
-    .then(res => res.data)
-    .then(data => {return data.map(parseCity)})
-    .then(data => {return data.sort(sortByLabelCompare)});
-}
+import {fetchStates, fetchCitiesByState} from "./util";
 
 function Cadastro() {
     const [values, setValues] = useState({
@@ -89,7 +59,7 @@ function Cadastro() {
             label: "Senha*",
             errorMessage: "A senha deve ter no mínimo 4 caracteres",
             required: true,
-            pattern: "[0-9]+",
+            pattern: "[0-9]{4,}",
             isLastForm: false,
             value: values.senha
         },
@@ -236,16 +206,22 @@ function Cadastro() {
         },
     }
 
+    const testarUsuario = (usuario) => {
+        if (usuario.email === "vencys100@gmail.com") alert("E-mail já registrado.");
+        console.log("CADASTRADO COM SUCESSOOOO POHAA");
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
         const formValues = Object.fromEntries(data.entries());
-        const {name, email, descricaoUsuario, endereco, cep, numero, complemento, bairro, estado, cidade} = formValues;
+        const {name, email, descricaoUsuario, telefone, endereco, cep, numero, complemento, bairro, estado, cidade} = formValues;
         const enderecoCompleto = `${endereco} - ${bairro}, n° ${numero}, ${cidade} - ${estado}, CEP ${cep}.${complemento && ` Complemento: ${complemento}.`}`
         
-        console.log({name, email, descricaoUsuario, enderecoCompleto, id: uuid.v4()})
+        const usuario = {nome: name, email, descricao: descricaoUsuario, endereco: enderecoCompleto, telefone};
+        testarUsuario(usuario);
     };
-    const onChange = (e) => {
+    const onChange = (e) => {  
         const {name, value} = e.target;
         setValues({...values, [name]: value});
     }

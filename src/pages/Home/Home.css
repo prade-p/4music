@@ -47,57 +47,6 @@
     align-items: row;
 }
 
-.card {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    border-radius: 15px !important; 
-}
-
-.card-images {
-    margin-top: 2vh;
-    margin-bottom: 1vh;
-}
-
-.card-text {
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    margin-right: 1vh;
-    margin-left: 1vh;
-    font-family: "Inter";
-    font-weight: 600;
-    text-align: center;
-    max-width: 9vw;
-}
-
-.card-button {
-    color: black;
-    background-color: #FF9F1C;
-    border: none;
-    border-radius: 100px;
-    width: 6.5vw;
-    font-family: "Montserrat";
-    font-weight: 600;
-    height: 3.5vh;
-    margin-bottom: 2vh;
-}
-
-.button-wishlist {
-    position: relative;
-    left: 35%;
-    margin-top: 5%;
-}
-
-.button-wishlist button{
-    background: none;
-    border: none;  
-    color: #FF9F1C;
-}
-
-.button-wishlist > button:hover {  
-    color: red; 
-}
-
 .historia-container {
     display: flex;
     justify-content: center;
@@ -106,13 +55,14 @@
     margin-top: 20vh;
     margin-inline: auto;
     max-width: 1410px;
+    padding: 1vw;
 }
 
 .text-historia {
     display: flex;
     flex-direction: column;
     margin-right: 5vw;
-    row-gap: 0.5vw;    
+    row-gap: 0.5vw;   
 }
 
 .title-line {
@@ -162,7 +112,8 @@
     margin-bottom: 10vh;
     margin-bottom: 20vh;
     margin-inline: auto;
-    max-width: 1410px;  
+    max-width: 1410px;
+    padding: 1vw;  
 }
 
 .image-localizacao {
@@ -178,7 +129,7 @@
     font-weight: 600;
     row-gap: 3vh;
     font-size: 20px;
-    margin-right: 3vw;
+    padding-left: 1vw;
 }
 
 
@@ -191,7 +142,7 @@
 }
 
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1200px){
     .historia-container {
         display: flex;
         flex-direction: column;
@@ -203,7 +154,8 @@
         align-items: center;
         row-gap: 0.5vw;
         margin-bottom: 3vh; 
-        margin-left: 4vw;   
+        margin-left: 4vw; 
+        text-align: justify;  
     }
 
     .localizacao-container {

@@ -29,7 +29,7 @@
 
 .header-logo > img {
     height: 100%;
-    width: 28vh;
+    width: 26vh;
 }
 
 .header-input-categorys {
@@ -70,7 +70,7 @@
     display: flex;
     justify-content: space-between;
     width: 125px;
-    font-size: 2rem;
+    
 }
 
 .header-profile > a:hover {
@@ -102,10 +102,12 @@
 
 .profile {
     color: #000;
+    font-size: 32px;
 }
 
-.carrinho {
+.logout {
     color: #000;
+    font-size: 30px;
 }
 
 @media screen and (max-width: 1100px){

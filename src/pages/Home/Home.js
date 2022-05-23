@@ -32,72 +32,71 @@ function Home() {
         <div className="title-destaques">Destaques</div>
         <div className="line-title"> </div>
         <div className="produtos-destaque">
-        <Carousel>
-  <Carousel.Item interval={1000}>
-  <div className="card">
-            <div className="button-wishlist">
-              <button type="button">
-                <AiOutlineHeart size={27} />
-              </button>
-            </div>
-            <div className="card-images">
-              <img src={Violão} alt="casa" width={250} />
-            </div>
-            <div className="card-text">
-              <p>
-                Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                Gonçalo
-              </p>
-            </div>
-            <div>
-              <button className="card-button">Adicionar</button>
-            </div>
-          </div>
-  </Carousel.Item>
-  <Carousel.Item interval={500}>
-  <div className="card">
-            <div className="button-wishlist">
-              <button type="button">
-                <AiOutlineHeart size={27} />
-              </button>
-            </div>
-            <div className="card-images">
-              <img src={Violão} alt="casa" width={250} />
-            </div>
-            <div className="card-text">
-              <p>
-                Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                Gonçalo
-              </p>
-            </div>
-            <div>
-              <button className="card-button">Adicionar</button>
-            </div>
-          </div>
-  </Carousel.Item>
-  <Carousel.Item>
-  <div className="card">
-            <div className="button-wishlist">
-              <button type="button">
-                <AiOutlineHeart size={27} />
-              </button>
-            </div>
-            <div className="card-images">
-              <img src={Violão} alt="casa" width={250} />
-            </div>
-            <div className="card-text">
-              <p>
-                Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                Gonçalo
-              </p>
-            </div>
-            <div>
-              <button className="card-button">Adicionar</button>
-            </div>
-          </div>
-  </Carousel.Item>
-</Carousel>
-
+          <Carousel>
+            <Carousel.Item interval={1000}>             
+                <div className="card-images">
+                  <img src={Violão} alt="casa" width={250} />
+                </div>            
+              <Carousel.Caption>
+              <div className="button-wishlist">
+                  <button type="button">
+                    <AiOutlineHeart size={27} />
+                  </button>
+                </div>
+              <div className="card-text">
+                  <p>
+                    Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
+                    Gonçalo
+                  </p>
+                </div>
+                <div>
+                  <button className="card-button">Adicionar</button>
+                </div>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item interval={500}>
+              <div className="card">
+                <div className="button-wishlist">
+                  <button type="button">
+                    <AiOutlineHeart size={27} />
+                  </button>
+                </div>
+                <div className="card-images">
+                  <img src={Violão} alt="casa" width={250} />
+                </div>
+                <div className="card-text">
+                  <p>
+                    Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
+                    Gonçalo
+                  </p>
+                </div>
+                <div>
+                  <button className="card-button">Adicionar</button>
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div className="card">
+                <div className="button-wishlist">
+                  <button type="button">
+                    <AiOutlineHeart size={27} />
+                  </button>
+                </div>
+                <div className="card-images">
+                  <img src={Violão} alt="casa" width={250} />
+                </div>
+                <div className="card-text">
+                  <p>
+                    Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
+                    Gonçalo
+                  </p>
+                </div>
+                <div>
+                  <button className="card-button">Adicionar</button>
+                </div>
+              </div>
+            </Carousel.Item>
+          </Carousel>
         </div>
       </div>
       <div className="historia-container">

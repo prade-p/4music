@@ -11,7 +11,7 @@ export default function Header() {
     <div className="header" id="header">
       <div className="header-container">
         <div className="header-logo">
-          <a href="/home" className="header-logo" title="Home">
+          <a href="/" className="header-logo" title="Home">
             <img src={Logo} alt="logo" width={250} />
           </a>
         </div>
@@ -21,7 +21,7 @@ export default function Header() {
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item href="/login">Login</Dropdown.Item>
-            <Dropdown.Item href="/home">Logout</Dropdown.Item>
+            <Dropdown.Item href="/">Logout</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item href="/produtos">Teclas</Dropdown.Item>
             <Dropdown.Item href="/produtos">Cordas</Dropdown.Item>
@@ -66,7 +66,7 @@ export default function Header() {
           <a href="/login" title="Profile" className="profile">
             <BsPerson />
           </a>
-          <a href="/home" title="LogOut" className="logout">
+          <a href="/" title="LogOut" className="logout">
             <MdLogout />
           </a>
         </div>

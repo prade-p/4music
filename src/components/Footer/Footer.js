@@ -18,10 +18,10 @@ export default function Footer () {
                         </div>         
                     </div>
                     <div className="social-media">
-                        <a href="/home" title="Facebook"><FaFacebook/></a>
-                        <a href="/home" title="Instagram"><FaInstagram/></a>
-                        <a href="/home" title="Youtube"><FaYoutube/></a>
-                        <a href="/home" title="Linkedin"><FaLinkedin/></a>
+                        <a href="/" title="Facebook"><FaFacebook/></a>
+                        <a href="/" title="Instagram"><FaInstagram/></a>
+                        <a href="/" title="Youtube"><FaYoutube/></a>
+                        <a href="/" title="Linkedin"><FaLinkedin/></a>
                     </div>
                 </div>
                 <div className="footer-links">

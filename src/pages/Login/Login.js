@@ -10,7 +10,7 @@ function Login() {
   function login() {
     console.log(email, password);
     if (email === "andreprocopio@cpejr.com.br" && password === "123") {
-      window.location.href="/home";
+      window.location.href="/";
       setValidacao(true);
     } else
       //alert("Dados incorretos!");

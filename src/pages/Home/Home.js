@@ -1,7 +1,7 @@
 import React from "react";
 import Grupo from "../../images/download.jpg";
 import Violão from "../../images/VIOLAO-GIANNINI-FK2-GOAL-EQ-NS_IMG1.png";
-import { AiOutlineHeart } from "react-icons/ai";
+import CardProduct from "../../components/CardProduct"
 import { MdLocationOn } from "react-icons/md";
 import { BiTimeFive } from "react-icons/bi";
 import Localizacao from "../../images/loc.png";
@@ -9,7 +9,133 @@ import Guitarra from "../../images/electric-guitar-1736292.jpg";
 import { Carousel } from "react-bootstrap";
 import "./Home.css";
 
+import Slider from "react-slick";
+
 function Home() {
+
+  const produtos = [
+    {
+      imagem: Violão,
+      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
+      preco: "4.000,00",
+      categoria: "Cordas",
+      produto_id: 1
+    }, 
+    {
+      imagem: Violão,
+      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
+      preco: "4.000,00",
+      categoria: "Cordas",
+      produto_id: 2
+    }, 
+    {
+      imagem: Violão,
+      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
+      preco: "4.000,00",
+      categoria: "Cordas",
+      produto_id: 3
+    }, 
+    {
+      imagem: Violão,
+      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
+      preco: "4.000,00",
+      categoria: "Cordas",
+      produto_id: 4
+    }, 
+    {
+      imagem: Violão,
+      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
+      preco: "4.000,00",
+      categoria: "Cordas",
+      produto_id: 5
+    }, 
+    {
+      imagem: Violão,
+      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
+      preco: "4.000,00",
+      categoria: "Cordas",
+      produto_id: 6
+    }, 
+    {
+      imagem: Violão,
+      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
+      preco: "4.000,00",
+      categoria: "Cordas",
+      produto_id: 7
+    }, 
+    {
+      imagem: Violão,
+      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
+      preco: "4.000,00",
+      categoria: "Cordas",
+      produto_id: 8
+    }, 
+    {
+      imagem: Violão,
+      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
+      preco: "4.000,00",
+      categoria: "Cordas",
+      produto_id: 9
+    }, 
+    {
+      imagem: Violão,
+      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
+      preco: "4.000,00",
+      categoria: "Cordas",
+      produto_id: 10
+    }, 
+    {
+      imagem: Violão,
+      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
+      preco: "4.000,00",
+      categoria: "Cordas",
+      produto_id: 11
+    },     
+    {
+      imagem: Violão,
+      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
+      preco: "4.000,00",
+      categoria: "Cordas",
+      produto_id: 12,
+      usuario_id: 1
+    }, 
+    
+  ];
+
+  const settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+        }
+      },
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        }
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+        },
+        
+      }
+    ]
+  };
   return (
     <div className="home-container">
       <div className="carousel-container">
@@ -28,76 +154,18 @@ function Home() {
           </Carousel.Item>
         </Carousel>
       </div>
-      <div className="promocoes-container">
+      <div className="destaque-container">
         <div className="title-destaques">Destaques</div>
-        <div className="line-title"> </div>
-        <div className="produtos-destaque">
-          <Carousel>
-            <Carousel.Item interval={1000}>             
-                <div className="card-images">
-                  <img src={Violão} alt="casa" width={250} />
-                </div>            
-              <Carousel.Caption>
-              <div className="button-wishlist">
-                  <button type="button">
-                    <AiOutlineHeart size={27} />
-                  </button>
-                </div>
-              <div className="card-text">
-                  <p>
-                    Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                    Gonçalo
-                  </p>
-                </div>
-                <div>
-                  <button className="card-button">Adicionar</button>
-                </div>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item interval={500}>
-              <div className="card">
-                <div className="button-wishlist">
-                  <button type="button">
-                    <AiOutlineHeart size={27} />
-                  </button>
-                </div>
-                <div className="card-images">
-                  <img src={Violão} alt="casa" width={250} />
-                </div>
-                <div className="card-text">
-                  <p>
-                    Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                    Gonçalo
-                  </p>
-                </div>
-                <div>
-                  <button className="card-button">Adicionar</button>
-                </div>
-              </div>
-            </Carousel.Item>
-            <Carousel.Item>
-              <div className="card">
-                <div className="button-wishlist">
-                  <button type="button">
-                    <AiOutlineHeart size={27} />
-                  </button>
-                </div>
-                <div className="card-images">
-                  <img src={Violão} alt="casa" width={250} />
-                </div>
-                <div className="card-text">
-                  <p>
-                    Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                    Gonçalo
-                  </p>
-                </div>
-                <div>
-                  <button className="card-button">Adicionar</button>
-                </div>
-              </div>
-            </Carousel.Item>
-          </Carousel>
-        </div>
+        <div className="line-title"></div>
+      </div>
+      <div className="produtos-carousel-container">
+        <Slider {...settings}>
+          {produtos.map(produtoDados => {
+            return (
+              <CardProduct style={{"minWidth": "16rem"}} key={produtoDados.produto_id} {...produtoDados}/>
+              )
+          })}
+        </Slider>
       </div>
       <div className="historia-container">
         <div className="text-historia">
@@ -148,24 +216,3 @@ function Home() {
 }
 
 export default Home;
-
-/* 
-<div className="card">
-            <div className="button-wishlist">
-              <button type="button">
-                <AiOutlineHeart size={27} />
-              </button>
-            </div>
-            <div className="card-images">
-              <img src={Violão} alt="casa" width={250} />
-            </div>
-            <div className="card-text">
-              <p>
-                Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                Gonçalo
-              </p>
-            </div>
-            <div>
-              <button className="card-button">Adicionar</button>
-            </div>
-          </div> */

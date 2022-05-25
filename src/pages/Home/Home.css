@@ -5,18 +5,22 @@
 
 .carousel-container {
     width: 100%;
-    
 }
 
-.promocoes-container {
+.destaque-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    margin: 40px 0;
+
+}
+
+.produtos-carousel-container {
+    width: 80%;
+    max-width: 1480px;
     margin-inline: auto;
-    margin-bottom: 20vh;
-    margin-top: 20vh;
+    height: auto;
 }
 
 .title-destaques {
@@ -36,12 +40,7 @@
     margin-top: 1vh;
 }
 
-.produtos-destaque {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5vh;
-    column-gap: 2vw;
-}
+
 
 .carousel-produto {
     align-items: row;
@@ -175,5 +174,9 @@
     .horas {
         font-size: 20px;
         text-align: center;
+    }
+
+    .image-historia {
+       object-fit:none;
     }
 }

@@ -1,18 +1,20 @@
 .card {
     overflow: hidden;
     border-radius: 15px !important;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     transition: transform 200ms ease-in;
+    max-width: 16rem;
 }
 
 .card-heart-icon {
     border: none;
     background: none;
-    position: relative;
-    left: 12rem;
     cursor: pointer;
+    position: absolute;
+    right: 5%;
 }
 
 .card-heart-icon:hover {  
@@ -49,8 +51,9 @@
     color: black;
     border-radius: 100px;
     width: 70%;
-    max-width: 10rem;
-    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-button:hover {

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./CardProduct.css"
 import { AiOutlineHeart } from "react-icons/ai";
 
-function CardProduct({produto_id, usuario_id, descricao, imagem, preco}) {
+function CardProduct({produto_id, usuario_id, descricao, imagem, preco, style}) {
     const [favoritado, setFavoritado] = useState(false);
     
     function onClick(e) {
@@ -12,11 +12,14 @@ function CardProduct({produto_id, usuario_id, descricao, imagem, preco}) {
     }
     
     return (
-        <div className="card" key={produto_id}>
+        <div className="card" key={produto_id} style={style}>
             <div className="card-body">
                 <button className="card-heart-icon" type="button" 
                 onClick={onClick} 
-                style={{ 'color': favoritado && "red" }}>
+                style={{ 
+                    'color': favoritado && "red", 
+                    "display": usuario_id ? "block" : "none"
+                }}>
                     <AiOutlineHeart size={27}/>
                 </button>
                 <img src={imagem} alt="" className="card-img" />

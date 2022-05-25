@@ -23,15 +23,15 @@ export default function Header() {
             <Dropdown.Item href="/login">Login</Dropdown.Item>
             <Dropdown.Item href="/">Logout</Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item href="/produtos">Teclas</Dropdown.Item>
-            <Dropdown.Item href="/produtos">Cordas</Dropdown.Item>
-            <Dropdown.Item href="/produtos">Áudio</Dropdown.Item>
-            <Dropdown.Item href="/produtos">Percussão</Dropdown.Item>
-            <Dropdown.Item href="/produtos">Sopro</Dropdown.Item>
+            <Dropdown.Item href="/teclas">Teclas</Dropdown.Item>
+            <Dropdown.Item href="/cordas">Cordas</Dropdown.Item>
+            <Dropdown.Item href="/audio">Áudio</Dropdown.Item>
+            <Dropdown.Item href="/percussao">Percussão</Dropdown.Item>
+            <Dropdown.Item href="/sopro">Sopro</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <div className="header-input-categorys">
-          <div className="search-bar">
+          {/* <div className="search-bar">
             <form action="/" method="GET" className="form">
               <input
                 type="text"
@@ -42,21 +42,21 @@ export default function Header() {
                 <img src={Lupa} alt="Lupa" />
               </button>
             </form>
-          </div>
+          </div> */}
           <div className="categorys">
-            <a href="/produtos" title="Teclas">
+            <a href="/teclas" title="Teclas">
               Teclas
             </a>
-            <a href="/produtos" title="Cordas">
+            <a href="/cordas" title="Cordas">
               Cordas
             </a>
-            <a href="/produtos" title="Áudio">
+            <a href="/audio" title="Áudio">
               Áudio
             </a>
-            <a href="/produtos" title="Percussão">
+            <a href="/percussao" title="Percussão">
               Percussão
             </a>
-            <a href="/produtos" title="Sopro">
+            <a href="/sopro" title="Sopro">
               Sopro
             </a>
           </div>

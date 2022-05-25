@@ -35,11 +35,11 @@ export default function Footer () {
                     <div className="footer-wrapper">
                         <div className="wrapper-column">
                             <h2>Categorias</h2>
-                            <a href="/produtos" title="Teclas">Teclas</a>
-                            <a href="/produtos" title="Cordas">Cordas</a>
-                            <a href="/produtos" title="Áudio">Áudio</a>
-                            <a href="/produtos" title="Percussão">Percussão</a>
-                            <a href="/produtos" title="Sopro"> Sopro</a>
+                            <a href="/teclas" title="Teclas">Teclas</a>
+                            <a href="/cordas" title="Cordas">Cordas</a>
+                            <a href="/audio" title="Áudio">Áudio</a>
+                            <a href="/percussao" title="Percussão">Percussão</a>
+                            <a href="/sopro" title="Sopro"> Sopro</a>
                         </div>
                     </div>
                     <div className="footer-wrapper">

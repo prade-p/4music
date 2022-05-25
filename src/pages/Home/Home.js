@@ -104,10 +104,12 @@ function Home() {
 
   const settings = {
     dots: true,
-    infinite: false,
-    speed: 500,
+    infinite: true,
     slidesToShow: 4,
     slidesToScroll: 4,
+    speed: 2000,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
     responsive: [
       {
         breakpoint: 1300,
@@ -136,6 +138,7 @@ function Home() {
       }
     ]
   };
+  
   return (
     <div className="home-container">
       <div className="carousel-container">

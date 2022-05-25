@@ -5,6 +5,7 @@ import { BsPerson } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
 import { Dropdown } from "react-bootstrap";
 import Lupa from "../../images/pesquisa.png";
+import SearchBar from "../SearchBar"
 
 export default function Header() {
   return (
@@ -31,7 +32,7 @@ export default function Header() {
           </Dropdown.Menu>
         </Dropdown>
         <div className="header-input-categorys">
-          {/* <div className="search-bar">
+        {/* <div className="search-bar">
             <form action="/" method="GET" className="form">
               <input
                 type="text"
@@ -43,6 +44,8 @@ export default function Header() {
               </button>
             </form>
           </div> */}
+
+          <SearchBar placeholder="Digite aqui a sua busca"/>
           <div className="categorys">
             <a href="/teclas" title="Teclas">
               Teclas

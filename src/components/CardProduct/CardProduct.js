@@ -17,7 +17,7 @@ function CardProduct({produto_id, usuario_id, descricao, imagem, preco, style}) 
                 <button className="card-heart-icon" type="button" 
                 onClick={onClick} 
                 style={{ 
-                    'color': favoritado && "red", 
+                    'color': favoritado && "#FF9F1C", 
                     "display": usuario_id ? "block" : "none"
                 }}>
                     <AiOutlineHeart size={27}/>

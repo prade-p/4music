@@ -4,6 +4,7 @@ import FormInput from "../../components/FormInput";
 import TextAreaInput from "../../components/TextAreaInput";
 import SelectInput from "../../components/SelectInput";
 import {fetchStates, fetchCitiesByState} from "./util";
+import { Alert } from "react-bootstrap";
 
 function Cadastro() {
     const [values, setValues] = useState({
@@ -24,6 +25,8 @@ function Cadastro() {
 
     const [states, setStates] = useState([]);
     const [cities, setCities] = useState([]);
+
+    const [hasEmailInDataBase, setHasEmailInDataBase] = useState(false);
 
     useEffect(() => {
         fetchStates().then(data => setStates(data))
@@ -208,6 +211,7 @@ function Cadastro() {
 
     const testarUsuario = (usuario) => {
         if (usuario.email === "vencys100@gmail.com") alert("E-mail já registrado.");
+        console.log(usuario)
         console.log("CADASTRADO COM SUCESSOOOO POHAA");
     }
 
@@ -219,7 +223,9 @@ function Cadastro() {
         const enderecoCompleto = `${endereco} - ${bairro}, n° ${numero}, ${cidade} - ${estado}, CEP ${cep}.${complemento && ` Complemento: ${complemento}.`}`
         
         const usuario = {nome: name, email, descricao: descricaoUsuario, endereco: enderecoCompleto, telefone};
+        
         testarUsuario(usuario);
+        values.email = "";
     };
     const onChange = (e) => {  
         const {name, value} = e.target;
@@ -229,10 +235,12 @@ function Cadastro() {
     return (
         <div className="cadastro">
             <div className="cadastroContainer">
-                {/* <pre>{JSON.stringify(values, undefined, 2)}</pre> */}
                 <h1 className="titulo">Registre-se</h1>
                 <form action="#" className="formContainer" onSubmit={handleSubmit}>
                     <div className="secaoForms">
+                        {!hasEmailInDataBase && 
+                        <Alert variant="danger">E-mail já cadastrado.</Alert>
+                        }
                         <h4 className="tituloSecao">Dados Cadastrais</h4>
                         <div className="dados">
                             <FormInput {...inputs.name} onChange={onChange}/>

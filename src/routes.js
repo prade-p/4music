@@ -34,7 +34,6 @@ function Routes() {
         <BrowserRouter>
         <Header/>
             <Switch>
-                <Route exact path="/" component={Home} />
                 <Route path="/cadastro" component={Cadastro} />
                 <Route path="/login" component={Login} />
                 <Route path="/produtos" component={Produtos} />
@@ -45,6 +44,7 @@ function Routes() {
                 <Route path="/sopro" component={Sopro} />
                 <Route path="/perfil" component={Perfil} />
                 {/* <PrivateRoute path="/perfil" component={Perfil} /> */}
+                <Route path="/" component={Home} />
             </Switch>
         <Footer/>
         </BrowserRouter>

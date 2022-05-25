@@ -1,21 +1,40 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
+import { login } from "../../services/auth";
+import api from "../../services/api";
 import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [validacao, setValidacao] = useState();
+ 
+  function handleLogin(e) {
+    e.preventDefault();
+    api.post("/login", { email: email, password: password }).then((response) => {
+      if (!response || response.status >= 400) {
+        setValidacao(false);
+        alert("Credenciais invalidas") 
+        return
+      };
+      login(response.data);
+      setValidacao(true);
+      alert("Logado com sucesso!");
+      window.location.href = "/";
+    });
+  };
 
-  function login() {
-    console.log(email, password);
+
+ /*  function Login() {
     if (email === "andreprocopio@cpejr.com.br" && password === "123") {
       window.location.href="/";
       setValidacao(true);
     } else
       //alert("Dados incorretos!");
       setValidacao(false);
-  }
+  } */
+
+  
 
   return (
     <div className="base">
@@ -51,7 +70,7 @@ function Login() {
             />
           </Form.Group>
           <p></p>
-          <Button variant="primary" className="loginBtn" onClick={login}>
+          <Button variant="primary" className="loginBtn" onClick={handleLogin}>
             Login
           </Button>
 

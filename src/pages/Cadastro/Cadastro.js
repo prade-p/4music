@@ -211,11 +211,6 @@ function Cadastro() {
         },
     }
 
-/*     const testarUsuario = (usuario) => {
-        if (usuario.email === "vencys100@gmail.com") alert("E-mail já registrado.");
-        console.log(usuario)
-        console.log("CADASTRADO COM SUCESSOOOO POHAA");
-    } */
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -225,8 +220,9 @@ function Cadastro() {
         const enderecoCompleto = `${endereco} - ${bairro}, n° ${numero}, ${cidade} - ${estado}, CEP ${cep}.${complemento && ` Complemento: ${complemento}.`}`
         
         const usuario = {nome: name,  password: senha, email, descricao: descricaoUsuario, endereco: enderecoCompleto, telefone};
-        console.log(usuario);
-        api.post("/usuario", usuario).then(response => {
+        api.post("/usuario", usuario ).then(response => {
+            alert("Cadastrado com sucesso!");
+            window.location.href = "/login";
         })
     };
     const onChange = (e) => {  

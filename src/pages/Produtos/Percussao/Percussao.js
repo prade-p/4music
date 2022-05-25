@@ -1,71 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import api from "../../../services/api";
 import Casa from "../../../images/casa.png";
 import Carteira from "../../../images/carteira.png";
 import Caixa from "../../../images/caixa.png";
-import Violão from "../../../images/VIOLAO-GIANNINI-FK2-GOAL-EQ-NS_IMG1.png";
 import CardProduct from "../../../components/CardProduct";
 import "./Percussao.css";
 
 function Percussao() {
 
-  const produtos = [
-    {
-      imagem: Violão,
-      descricao: "Andre 17 anos",
-      preco: "4.000,00",
-      categoria: "audio",
-      produto_id: 1,
-      usuario_id: 1
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Qualque coisa",
-      preco: "4.000,00",
-      categoria: "sopro",
-      produto_id: 2,
-      usuario_id: 2
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "percussao",
-      produto_id: 3,
-      usuario_id: 3
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "cordas",
-      produto_id: 4,
-      usuario_id: 4
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "cordas",
-      produto_id: 5,
-      usuario_id: 5
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "cordas",
-      produto_id: 6,
-      usuario_id: 6
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "cordas",
-      produto_id: 7,
-      usuario_id: 7
-    }, 
-  ];
+  useEffect(() => {
+    api.get("/produto/categoria/percussao").then((response) => {
+      setDados(response.data);
+      console.log(dados);
+    });
+  }, []);
+
+  const [dados, setDados] = useState([]);
 
   return (
     <div className="produtos-container">
@@ -84,7 +34,7 @@ function Percussao() {
         </div>
       </div>
       <div className="cards-wrapper">
-        {produtos.filter(produto => produto.categoria === "percussao").map(produtoDados => {
+        {dados.filter(produto => produto.categoria === "percussao").map(produtoDados => {
           return (<CardProduct key={produtoDados.produto_id} {...produtoDados}/>)})}
       </div>
     </div>

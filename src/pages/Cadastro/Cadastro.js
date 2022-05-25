@@ -58,7 +58,7 @@ function Cadastro() {
             name: "senha",
             type: "password",
             label: "Senha*",
-            errorMessage: "A senha deve ter no mínimo 4 caracteres",
+            errorMessage: "A senha deve ter no mínimo 6 caracteres",
             required: true,
             pattern: "[0-9]{6,}",
             isLastForm: false,
@@ -207,10 +207,6 @@ function Cadastro() {
         },
     }
 
-/*     const testarUsuario = (usuario) => {
-        if (usuario.email === "vencys100@gmail.com") alert("E-mail já registrado.");
-        console.log("CADASTRADO COM SUCESSOOOO POHAA");
-    } */
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -219,10 +215,10 @@ function Cadastro() {
         const {name, senha, email, descricaoUsuario, telefone, endereco, cep, numero, complemento, bairro, estado, cidade} = formValues;
         const enderecoCompleto = `${endereco} - ${bairro}, n° ${numero}, ${cidade} - ${estado}, CEP ${cep}.${complemento && ` Complemento: ${complemento}.`}`
         
-        const usuario = {nome: name,  password:senha, email, descricao: descricaoUsuario, endereco: enderecoCompleto, telefone};
-        console.log(usuario);
-        api.post("/usuario", { usuario } ).then(response => {
-            console.log(response.status);
+        const usuario = {nome: name,  password: senha, email, descricao: descricaoUsuario, endereco: enderecoCompleto, telefone};
+        api.post("/usuario", usuario ).then(response => {
+            alert("Cadastrado com sucesso!");
+            window.location.href = "/login";
         })
 
     };

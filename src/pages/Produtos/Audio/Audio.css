@@ -3,6 +3,7 @@
     justify-self: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 15vh;
 }
 
 .produtos-info {

@@ -31,7 +31,7 @@ export default function Header() {
           </Dropdown.Menu>
         </Dropdown>
         <div className="header-input-categorys">
-          {/* <div className="search-bar">
+          <div className="search-bar">
             <form action="/" method="GET" className="form">
               <input
                 type="text"
@@ -42,7 +42,7 @@ export default function Header() {
                 <img src={Lupa} alt="Lupa" />
               </button>
             </form>
-          </div> */}
+          </div> 
           <div className="categorys">
             <a href="/teclas" title="Teclas">
               Teclas

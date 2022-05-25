@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Casa from "../../../images/casa.png";
 import Carteira from "../../../images/carteira.png";
 import Caixa from "../../../images/caixa.png";
-import Violão from "../../../images/VIOLAO-GIANNINI-FK2-GOAL-EQ-NS_IMG1.png";
+/* import Violão from "../../../images/VIOLAO-GIANNINI-FK2-GOAL-EQ-NS_IMG1.png"; */
 import "./Cordas.css";
 import CardProduct from "../../../components/CardProduct";
+import api from "../../../services/api";
 
 function Cordas() {
-
-  const produtos = [
+  /*  const produtos = [
     {
       imagem: Violão,
       descricao: "Andre 17 anos",
@@ -65,7 +65,16 @@ function Cordas() {
       produto_id: 7,
       usuario_id: 7
     }, 
-  ];
+  ]; */
+
+  useEffect(() => {
+    api.get("/produto/categoria/cordas").then((response) => {
+      setDados(response.data);
+      console.log(dados);
+    });
+  }, []);
+
+  const [dados, setDados] = useState([]);
 
   return (
     <div className="produtos-container">
@@ -84,8 +93,11 @@ function Cordas() {
         </div>
       </div>
       <div className="cards-wrapper">
-        {produtos.filter(produto => produto.categoria === "cordas").map(produtoDados => {
-          return (<CardProduct key={produtoDados.produto_id} {...produtoDados}/>)})}
+        {dados.map((produtoDados) => {
+          return (
+            <CardProduct key={produtoDados.produto_id} {...produtoDados} />
+          );
+        })}
       </div>
     </div>
   );

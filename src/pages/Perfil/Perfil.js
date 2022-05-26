@@ -34,14 +34,7 @@ function Perfil() {
     useEffect(() => {
         const usuario_id = sessionStorage.getItem("usuario_id");
         api.get(`/produto_usuario/${usuario_id}`).then((response) => {
-            const produtosId = response.data.map(value => value.produto_id);
-            console.log(produtosId);
-            produtosId.forEach(produtoId => {
-                api.get(`/produto/${produtoId}`).then(res => {
-                    
-                    setDados([...dados, res.data]);
-                })
-            })
+            setDados(response.data);
         });
 
       }, []);
@@ -296,69 +289,11 @@ function Perfil() {
 
                     <div className="listCardDesejo">
                     {dados.map((produtoDados) => {
+                        console.log(dados);
                         return (
                             <CardProduct key={produtoDados.produto_id} {...produtoDados} />
                         );
                     })}
-                        {/* <div className="card">
-                            <div className="card-images">
-                                <img src={Violão} alt="casa" width={250} />
-                            </div>
-                            <div className="card-text">
-                                <p>
-                                    Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                                    Gonçalo
-                                </p>
-                            </div>
-                            <div>
-                                <button className="card-button">Adicionar</button>
-                            </div>
-                        </div>
-
-                        <div className="card">
-                            <div className="card-images">
-                                <img src={Violão} alt="casa" width={250} />
-                            </div>
-                            <div className="card-text">
-                                <p>
-                                    Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                                    Gonçalo
-                                </p>
-                            </div>
-                            <div>
-                                <button className="card-button">Adicionar</button>
-                            </div>
-                        </div>
-
-                        <div className="card">
-                            <div className="card-images">
-                                <img src={Violão} alt="casa" width={250} />
-                            </div>
-                            <div className="card-text">
-                                <p>
-                                    Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                                    Gonçalo
-                                </p>
-                            </div>
-                            <div>
-                                <button className="card-button">Adicionar</button>
-                            </div>
-                        </div>
-
-                        <div className="card">
-                            <div className="card-images">
-                                <img src={Violão} alt="casa" width={250} />
-                            </div>
-                            <div className="card-text">
-                                <p>
-                                    Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS
-                                    Gonçalo
-                                </p>
-                            </div>
-                            <div>
-                                <button className="card-button">Adicionar</button>
-                            </div>
-                        </div> */}
 
                     </div>
                 </div>

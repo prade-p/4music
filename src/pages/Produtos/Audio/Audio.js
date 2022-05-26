@@ -8,9 +8,10 @@ import api from "../../../services/api";
 
 function Audio() {
 
+
   useEffect(() => {
     api.get("/produto/categoria/audio").then((response) => {
-      setDados(response.data);
+      setDados( response.data );
       console.log(dados);
     });
   }, []);

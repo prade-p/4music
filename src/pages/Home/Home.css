@@ -40,8 +40,6 @@
     margin-top: 1vh;
 }
 
-
-
 .carousel-produto {
     align-items: row;
 }
@@ -176,7 +174,11 @@
         text-align: center;
     }
 
-    .image-historia {
-       object-fit:none;
+    .image-historia > img {
+       width: 100vw;
     }
+
+    .image-localizacao > img {
+        width: 100vw;
+     }
 }

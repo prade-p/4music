@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, /* Redirect */ } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Cadastro from "./pages/Cadastro";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -12,9 +12,9 @@ import Teclas from "./pages/Produtos/Teclas"
 import Audio from "./pages/Produtos/Audio"
 import Percussao from "./pages/Produtos/Percussao"
 import Sopro from "./pages/Produtos/Sopro"
-/* import { isAuthenticated } from "./services/auth"; */
+import { isAuthenticated } from "./services/auth";
 
-/* const PrivateRoute = ({ component: Component, ...rest }) => (
+const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
         render={(props) => 
@@ -22,12 +22,12 @@ import Sopro from "./pages/Produtos/Sopro"
                 <Component {...props} />
             ) : (
                 <Redirect 
-                    to={{ pathname: "/perfil", state: { from: props.location } }}
+                    to={{ pathname: "/", state: { from: props.location } }}
                 />
             )
         }
     />
-); */
+);
 
 function Routes() {
     return(
@@ -42,8 +42,8 @@ function Routes() {
                 <Route path="/audio" component={Audio} />
                 <Route path="/percussao" component={Percussao} />
                 <Route path="/sopro" component={Sopro} />
-                <Route path="/perfil" component={Perfil} />
-                {/* <PrivateRoute path="/perfil" component={Perfil} /> */}
+                {/* <Route path="/perfil" component={Perfil} /> */}
+                <PrivateRoute path="/perfil" component={Perfil} />
                 <Route path="/" component={Home} />
             </Switch>
         <Footer/>

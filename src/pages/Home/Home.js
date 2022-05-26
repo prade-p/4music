@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import api from "../../services/api";
 import Grupo from "../../images/download.jpg";
-import Violão from "../../images/VIOLAO-GIANNINI-FK2-GOAL-EQ-NS_IMG1.png";
 import CardProduct from "../../components/CardProduct"
 import { MdLocationOn } from "react-icons/md";
 import { BiTimeFive } from "react-icons/bi";
@@ -13,94 +13,14 @@ import Slider from "react-slick";
 
 function Home() {
 
-  const produtos = [
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "Cordas",
-      produto_id: 1
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "Cordas",
-      produto_id: 2
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "Cordas",
-      produto_id: 3
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "Cordas",
-      produto_id: 4
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "Cordas",
-      produto_id: 5
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "Cordas",
-      produto_id: 6
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "Cordas",
-      produto_id: 7
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "Cordas",
-      produto_id: 8
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "Cordas",
-      produto_id: 9
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "Cordas",
-      produto_id: 10
-    }, 
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "Cordas",
-      produto_id: 11
-    },     
-    {
-      imagem: Violão,
-      descricao: "Violão Folk Eletroacústico de Aço Giannini FK2 Goal CEQ NS Gonçalo",
-      preco: "4.000,00",
-      categoria: "Cordas",
-      produto_id: 12,
-      usuario_id: 1
-    }, 
-    
-  ];
+  useEffect(() => {
+    api.get("/produto").then((response) => {
+      setDados(response.data);
+      console.log(dados);
+    });
+  }, []);
+
+  const [dados, setDados] = useState([]);
 
   const settings = {
     dots: true,
@@ -163,7 +83,7 @@ function Home() {
       </div>
       <div className="produtos-carousel-container">
         <Slider {...settings}>
-          {produtos.map(produtoDados => {
+          {dados.slice(0, 10).map(produtoDados => {
             return (
               <CardProduct style={{"minWidth": "16rem"}} key={produtoDados.produto_id} {...produtoDados}/>
               )

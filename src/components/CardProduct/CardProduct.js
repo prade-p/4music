@@ -1,27 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./CardProduct.css"
 import { AiOutlineHeart } from "react-icons/ai";
 import api from "../../services/api"
 
 function CardProduct({produto_id, descricao, imagem, preco, style}) {
-    const [favoritado, setFavoritado] = useState(false);
+   const [favoritado, setFavoritado] = useState(false);
+
+   const usuario_id = sessionStorage.getItem('usuario_id');
     
+    useEffect(() => {     
+        api.get(`/produto_usuario/${usuario_id}/${produto_id}`).then((response) => {
+            
+            setFavoritado( response.data );
+
+          });
+    }, [])
+
     function onClick(e) {
         e.preventDefault();
-        const usuario_id = sessionStorage.getItem("usuario_id");
-
         if (usuario_id === null) {
             window.location.href = "/login";
             return;
         }
-
-        console.log("IAI VEY")
-
-        setFavoritado("");
-
-        console.log(favoritado)
-        if (true) {
-            console.log("IAI VEI2");
+        
+        const favorito = !favoritado;
+        setFavoritado(favorito);
+        
+        if (favorito) {
             api.post("/produto_usuario", {usuario_id, produto_id});
         } else {
             api.delete(`/produto_usuario/${usuario_id}/${produto_id}`)

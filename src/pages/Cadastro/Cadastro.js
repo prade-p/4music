@@ -211,7 +211,6 @@ function Cadastro() {
         },
     }
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
@@ -221,7 +220,13 @@ function Cadastro() {
         
         const usuario = {nome: name,  password: senha, email, descricao: descricaoUsuario, endereco: enderecoCompleto, telefone};
         api.post("/usuario", usuario ).then(response => {
-            alert("Cadastrado com sucesso!");
+            if (response.status >= 400) {
+                setHasEmailInDataBase(true);
+                values.email = "";
+                return;
+            }
+            setHasEmailInDataBase(false);
+            alert("Logado com sucesso.")
             window.location.href = "/login";
         })
     };

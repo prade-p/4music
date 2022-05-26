@@ -1,14 +1,31 @@
 import React, { useState } from "react";
 import "./CardProduct.css"
 import { AiOutlineHeart } from "react-icons/ai";
+import api from "../../services/api"
 
-function CardProduct({produto_id, usuario_id, descricao, imagem, preco, style}) {
+function CardProduct({produto_id, descricao, imagem, preco, style}) {
     const [favoritado, setFavoritado] = useState(false);
     
     function onClick(e) {
         e.preventDefault();
-        setFavoritado(!favoritado);
-        console.log({usuario_id, produto_id})
+        const usuario_id = sessionStorage.getItem("usuario_id");
+
+        if (usuario_id === null) {
+            window.location.href = "/login";
+            return;
+        }
+
+        console.log("IAI VEY")
+
+        setFavoritado("");
+
+        console.log(favoritado)
+        if (true) {
+            console.log("IAI VEI2");
+            api.post("/produto_usuario", {usuario_id, produto_id});
+        } else {
+            api.delete(`/produto_usuario/${usuario_id}/${produto_id}`)
+        }
     }
     
     return (
@@ -18,7 +35,6 @@ function CardProduct({produto_id, usuario_id, descricao, imagem, preco, style}) 
                 onClick={onClick} 
                 style={{ 
                     'color': favoritado && "#FF9F1C", 
-                    "display": usuario_id ? "block" : "none"
                 }}>
                     <AiOutlineHeart size={27}/>
                 </button>

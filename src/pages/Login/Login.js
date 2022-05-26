@@ -17,8 +17,11 @@ function Login() {
         alert("Credenciais invalidas") 
         return
       };
-      login(response.data);
+      const data = response.data;
+      login(data.accessToken);
+      sessionStorage.setItem("usuario_id", data.usuario.usuario_id);
       setValidacao(true);
+      
       alert("Logado com sucesso!");
       window.location.href = "/";
     });

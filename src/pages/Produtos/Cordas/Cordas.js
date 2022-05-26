@@ -34,7 +34,7 @@ function Cordas() {
         </div>
       </div>
       <div className="cards-wrapper">
-        {dados.map((produtoDados) => {
+      {dados.map((produtoDados) => {
           return (
             <CardProduct key={produtoDados.produto_id} {...produtoDados} />
           );

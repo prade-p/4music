@@ -9,11 +9,13 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
-import Violão from "../../images/VIOLAO-GIANNINI-FK2-GOAL-EQ-NS_IMG1.png";
 import {fetchStates, fetchCitiesByState} from "./util";
 import "./Perfil.css";
 import "../Produtos/Produtos.css";
 import SelectInput from "../../components/SelectInput";
+import api from "../../services/api";
+import {logout} from "../../services/auth";
+import CardProduct from "../../components/CardProduct"
 
 
 function Perfil() {
@@ -21,12 +23,29 @@ function Perfil() {
     const [itemSelec, setItemSelec] = useState(1);
     const [states, setStates] = useState([]);
     const [cities, setCities] = useState([]);
+    const [usuario, setUsuario] = useState({});
+    const [dados, setDados] = useState([]);
 
     const [values, setValues] = useState({
         estado: "",
         telefone: "",
     });
 
+    useEffect(() => {
+        const usuario_id = sessionStorage.getItem("usuario_id");
+        api.get(`/produto_usuario/${usuario_id}`).then((response) => {
+            const produtosId = response.data.map(value => value.produto_id);
+            console.log(produtosId);
+            produtosId.forEach(produtoId => {
+                api.get(`/produto/${produtoId}`).then(res => {
+                    
+                    setDados([...dados, res.data]);
+                })
+            })
+        });
+
+      }, []);
+    
     const selectInputs = {
         estado: {
             name: "estado",
@@ -51,12 +70,16 @@ function Perfil() {
     }
 
     function SelecItem(index) {
-        setItemSelec(index);
+        if (index === 4) {
+            window.location.href = "/";
+        } else {
+            setItemSelec(index);
+        }
     }
 
     useEffect(() => {
         fetchStates().then(data => setStates(data))
-      }, [states])
+      }, [])
   
     useEffect(() => {
         fetchCitiesByState(values.estado).then(data => setCities(data))
@@ -66,6 +89,13 @@ function Perfil() {
         const {name, value} = e.target;
         setValues({...values, [name]: value});
     }
+
+    useEffect(() => {
+        const usuario_id = sessionStorage.getItem("usuario_id");
+        api.get(`/usuario/${usuario_id}`).then(res => {
+            setUsuario(res.data);
+        });
+    }, [])
 
     return (
 
@@ -136,7 +166,10 @@ function Perfil() {
 
                         <Divider />
 
-                        <ListItemButton selected={itemSelec === 4} onClick={(e) => SelecItem(4)} sx={
+                        <ListItemButton selected={itemSelec === 4} onClick={(e) => {
+                            SelecItem(4);
+                            logout()
+                        }} sx={
                             {
                                 '& .MuiTypography-root': {
                                     fontFamily: 'Montserrat',
@@ -170,24 +203,24 @@ function Perfil() {
 
                         <div className="containerDados">
                             <div className="nomeDado">
-                                Nome Compelto
+                                Nome Completo
                             </div>
                             <div className="conteudoDado">
-                                Fulano de Tal
+                                {usuario?.nome}
                             </div>
                             <p></p>
                             <div className="nomeDado">
                                 E-mail
                             </div>
                             <div className="conteudoDado">
-                                ddddd@ddd.com
+                                {usuario?.email}
                             </div>
                             <p></p>
                             <div className="nomeDado">
                                 Telefone Celular
                             </div>
                             <div className="conteudoDado">
-                                31 9999-9999
+                                {usuario?.telefone}
                             </div>
                         </div>
 
@@ -196,12 +229,7 @@ function Perfil() {
                                 Descrição
                             </div>
                             <div className="conteudoDado">
-                                A 4music é uma loja de música tradicional de Belo Horizonte
-                                que já está no mercado há 32 anos. Nós iniciamos como um bazar
-                                de instrumentos musicais, recebendo e vendendo eles para amigos
-                                e parentes. Porém, com o passar do tempo decidimos levar esse hobby
-                                a sério e montamos uma loja. Atualmente trabalhamos com 100% de exelência
-                                e entregamos para toda Minas Gerais.
+                                {usuario?.descricao}
                             </div>
                         </div>
 
@@ -234,22 +262,13 @@ function Perfil() {
 
                         <div className="containerDadosEndereco">
                             <div className="nomeDado">
-                                Usuário
+                                {usuario?.nome}
                             </div>
 
                             <p></p>
 
                             <div className="conteudoDado">
-                                Rua Tal, 00, Bairro
-                            </div>
-                            <div className="conteudoDado">
-                                Complemento
-                            </div>
-                            <div className="conteudoDado">
-                                Cidade - UF
-                            </div>
-                            <div className="conteudoDado">
-                                CEP: 00000-000
+                                {usuario?.endereco}
                             </div>
                         </div>
 
@@ -276,8 +295,12 @@ function Perfil() {
                     <p></p>
 
                     <div className="listCardDesejo">
-
-                        <div className="card">
+                    {dados.map((produtoDados) => {
+                        return (
+                            <CardProduct key={produtoDados.produto_id} {...produtoDados} />
+                        );
+                    })}
+                        {/* <div className="card">
                             <div className="card-images">
                                 <img src={Violão} alt="casa" width={250} />
                             </div>
@@ -335,7 +358,7 @@ function Perfil() {
                             <div>
                                 <button className="card-button">Adicionar</button>
                             </div>
-                        </div>
+                        </div> */}
 
                     </div>
                 </div>

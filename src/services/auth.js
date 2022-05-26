@@ -6,4 +6,5 @@ export const login = (token) => {
 };
 export const logout = () => {
   sessionStorage.removeItem(TOKEN_KEY);
+  sessionStorage.removeItem("usuario_id");
 };

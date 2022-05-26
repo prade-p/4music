@@ -14,15 +14,15 @@ import Percussao from "./pages/Produtos/Percussao"
 import Sopro from "./pages/Produtos/Sopro"
 import { isAuthenticated } from "./services/auth";
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
+const PrivateRoute = ({redirectPath, authentication, component: Component, ...rest }) => (
     <Route
         {...rest}
         render={(props) => 
-            isAuthenticated() ? (
+            authentication ? (
                 <Component {...props} />
             ) : (
                 <Redirect 
-                    to={{ pathname: "/", state: { from: props.location } }}
+                    to={{ pathname: redirectPath, state: { from: props.location } }}
                 />
             )
         }
@@ -35,15 +35,14 @@ function Routes() {
         <Header/>
             <Switch>
                 <Route path="/cadastro" component={Cadastro} />
-                <Route path="/login" component={Login} />
+                <PrivateRoute authentication={!isAuthenticated()} path="/login" redirectPath="/perfil" component={Login} />
                 <Route path="/produtos" component={Produtos} />
                 <Route path="/teclas" component={Teclas} />
                 <Route path="/cordas" component={Cordas} />
                 <Route path="/audio" component={Audio} />
                 <Route path="/percussao" component={Percussao} />
                 <Route path="/sopro" component={Sopro} />
-                {/* <Route path="/perfil" component={Perfil} /> */}
-                <PrivateRoute path="/perfil" component={Perfil} />
+                <PrivateRoute authentication={isAuthenticated()} path="/perfil" redirectPath="/" component={Perfil} />
                 <Route path="/" component={Home} />
             </Switch>
         <Footer/>

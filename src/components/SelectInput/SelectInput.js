@@ -1,14 +1,14 @@
 import React, {useState} from 'react'
 import "./SelectInput.css"
 
-function SelectInput({dataSet = [], firstOption, inputStyle, label, errorMessage, isLastForm, seDescricao, descricao, ...props}) {
+function SelectInput({dataSet = [], firstOption, inputStyle, label, errorMessage, isLastForm, seDescricao, descricao, containerStyle, ...props}) {
   const [focused, setFocused] = useState(false)
   const handleFocused = (e) => {
       setFocused(true);
   }
   
   return (
-      <div className="SelectInput">
+      <div className="SelectInput" style={containerStyle}>
           <label>{label}</label>
           <select {...props} 
           onBlur={handleFocused}

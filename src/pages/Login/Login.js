@@ -3,7 +3,6 @@ import { Form, Button } from "react-bootstrap";
 import { login } from "../../services/auth";
 import api from "../../services/api";
 import "./Login.css";
-import { isAuthenticated } from "../../services/auth";
 
 function Login() {
   const [email, setEmail] = useState();
@@ -37,11 +36,6 @@ function Login() {
       //alert("Dados incorretos!");
       setValidacao(false);
   } */
-
-  if (isAuthenticated()) {
-    window.location.href="/perfil" 
-    return <> </>
-  } 
 
   return (
     <div className="base">

@@ -27,7 +27,7 @@ function Home() {
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 4,
-    speed: 2000,
+    speed: 1000,
     autoplaySpeed: 2000,
     cssEase: "linear",
     responsive: [
@@ -37,6 +37,7 @@ function Home() {
           slidesToShow: 3,
           slidesToScroll: 3,
           infinite: true,
+          speed: 800,
         }
       },
       {
@@ -45,6 +46,7 @@ function Home() {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          speed: 500,
         }
       },
       {
@@ -53,6 +55,7 @@ function Home() {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: false,
+          speed: 200,
         },
         
       }
@@ -85,7 +88,7 @@ function Home() {
         <Slider {...settings}>
           {dados.slice(0, 10).map(produtoDados => {
             return (
-              <CardProduct style={{"minWidth": "16rem"}} key={produtoDados.produto_id} {...produtoDados}/>
+              <CardProduct style={{"height": "30rem;"}} key={produtoDados.produto_id} {...produtoDados}/>
               )
           })}
         </Slider>

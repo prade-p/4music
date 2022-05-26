@@ -17,6 +17,10 @@ import api from "../../services/api";
 import {logout} from "../../services/auth";
 import CardProduct from "../../components/CardProduct"
 
+import { Alert } from "react-bootstrap";
+import FormInput from "../../components/FormInput"
+import TextAreaInput from "../../components/TextAreaInput"
+
 
 function Perfil() {
 
@@ -25,20 +29,148 @@ function Perfil() {
     const [cities, setCities] = useState([]);
     const [usuario, setUsuario] = useState({});
     const [dados, setDados] = useState([]);
+    const [hasEmailInDataBase, setHasEmailInDataBase] = useState(false);
 
     const [values, setValues] = useState({
+        name: "",
+        email: "",
+        senha: "",
+        senhaConf: "",
+        descricaoUsuario: "",
+        cep: "",
+        endereco: "",
+        numero: "",
+        complemento: "",
+        bairro: "",
+        cidade: "",
         estado: "",
         telefone: "",
     });
 
-    useEffect(() => {
-        const usuario_id = sessionStorage.getItem("usuario_id");
-        api.get(`/produto_usuario/${usuario_id}`).then((response) => {
-            setDados(response.data);
-        });
+    const inputs = {
+        name: {
+            name: "name",
+            type: "text",
+            label: "Nome Completo",
+            errorMessage: "Deve conter no mínimo três caracteres",
+            pattern: ".{3,}",
+            isLastForm: false,
+            value: values.name
+        },
+        email: {
+            name: "email",
+            type: "email",
+            label: "E-mail",
+            errorMessage: "Formato inválido",
+            isLastForm: false,
+            value: values.email
+        },
+        senha: {
+            name: "senha",
+            type: "password",
+            label: "Senha",
+            errorMessage: "A senha deve ter no mínimo 6 caracteres",
+            pattern: "[0-9]{6,}",
+            isLastForm: false,
+            value: values.senha
+        },
+        senhaConf: {
+            name: "senhaConf",
+            type: "password",
+            label: "Confirmação da senha",
+            errorMessage: "Senhas não são compatíveis",
+            required: values.senha !== "" ? true : false,
+            pattern: values.senha,
+            isLastForm: false,
+            value: values.senhaConf
+        },
+        descricaoUsuario: {
+            name: "descricaoUsuario",
+            type: "text",
+            label: "Fale um pouco sobre você*",
+            customStyle: {
+                width: "100%",
+            },
+            inputStyle: {
+                height: "100px",
+            },
+            isLastForm: false,
+            value: values.descricaoUsuario
+        },
+        cep: {
+            name: "cep",
+            type: "text",
+            label: "CEP*",
+            errorMessage: "Formato inválido",
+            required: true,
+            pattern: "[0-9]{5}-[0-9]{3}",
+            isLastForm: true,
+            value: values.cep
+        },
+        endereco: {
+            name: "endereco",
+            type: "text",
+            label: "Endereço*",
+            errorMessage: "Campo obrigatório",
+            required: true,
+            isLastForm: false,
+            value: values.endereco
+        },
+        numero: {
+            name: "numero",
+            type: "text",
+            label: "Número*",
+            errorMessage: "Campo obrigatório. Apenas caracteres numéricos",
+            required: true,
+            pattern: "\\d+",
+            isLastForm: false,
+            value: values.numero
+        },
+        complemento: {
+            name: "complemento",
+            type: "text",
+            label: "Complemento (opcional)",
+            required: false,
+            isLastForm: false,
+            value: values.complemento
+        },
+        bairro: {
+            name: "bairro",
+            type: "text",
+            label: "Bairro*",
+            errorMessage: "Campo obrigatório",
+            required: true,
+            isLastForm: true,
+            value: values.bairro
+        },
+        telefone: {
+            name: "telefone",
+            type: "text",
+            label: "Telefone celular",
+            placeholder: "99 99999-9999",
+            errorMessage: "Formato inválido: 99 99999-9999",
+            pattern: "\\d{2}\\s9\\d{4}-\\d{4}",
+            isLastForm: false,
+            value: values.telefone
+        },
+    }
 
-      }, []);
-    
+    const textArea = {
+        descricaoUsuario: {
+            name: "descricaoUsuario",
+            type: "text",
+            label: "Fale um pouco sobre você",
+            customStyle: {
+                width: "100%",
+            },
+            inputStyle: {
+                height: "100px",
+            },
+            isLastForm: true,
+            value: values.descricaoUsuario
+        },
+    }
+
     const selectInputs = {
         estado: {
             name: "estado",
@@ -61,6 +193,44 @@ function Perfil() {
             value: values.cidade
         },
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        const formValues = Object.fromEntries(data.entries());
+        console.log(formValues)
+        const {name, senha, email, descricaoUsuario, telefone, endereco, cep, numero, complemento, bairro, estado, cidade} = formValues;
+        const enderecoCompleto = `${endereco} - ${bairro}, n° ${numero}, ${cidade} - ${estado}, CEP ${cep}.${complemento && ` Complemento: ${complemento}.`}`
+        
+        const usuario_id = sessionStorage.getItem("usuario_id");
+        const usuario = {nome: name,  password: senha, email, descricao: descricaoUsuario, endereco: enderecoCompleto, telefone};
+
+        const updates = Object.keys(usuario).reduce((acc, key) => {
+            const value = usuario[key];
+            if (!value || value.includes("undefined")) return acc;
+            acc[key] = value;
+            return acc;
+        }, {})
+
+        api.put(`/usuario/${usuario_id}`, updates).then(response => {
+            if (response.status >= 400) {
+                setHasEmailInDataBase(true);
+                values.email = "";
+                return;
+            }
+            setHasEmailInDataBase(false);
+            alert("Autalizado com sucesso!")
+            window.location.href = "/perfil";
+        })
+    };
+
+
+    useEffect(() => {
+        const usuario_id = sessionStorage.getItem("usuario_id");
+        api.get(`/produto_usuario/${usuario_id}`).then((response) => {
+            setDados(response.data);
+        });
+      }, []);
 
     function SelecItem(index) {
         if (index === 4) {
@@ -307,9 +477,12 @@ function Perfil() {
                 <div className="containerPerfil">
                     <div className="tituloContainerPerfil">
                         <h2>Editar Dados Pessoais</h2>
+                        {hasEmailInDataBase && 
+                            <Alert variant="danger">E-mail já cadastrado.</Alert>
+                        }
                     </div>
 
-                    <Divider />
+                    {/* <Divider />
 
                     <p></p>
 
@@ -372,16 +545,25 @@ function Perfil() {
                         </Form>
                     </div>
 
-                    <p></p>
-
-                    <div className="btnEditarDados">
-                        <Button variant="contained">
-                            <ListItemIcon>
-                                <SaveOutlinedIcon /> Salvar Alterações
-                            </ListItemIcon>
-                        </Button>
-                    </div>
-
+                    <p></p> */}
+                    
+                    <form action="#" className="formContainerInfo" onSubmit={handleSubmit}>
+                        <div className="dados">
+                        <FormInput {...inputs.name} onChange={onChange}/>
+                            <FormInput {...inputs.email} onChange={onChange}/>
+                            <FormInput {...inputs.senha} onChange={onChange}/>
+                            <FormInput {...inputs.senhaConf} onChange={onChange}/>
+                            <FormInput {...inputs.telefone} onChange={onChange}/>
+                        </div>
+                            <TextAreaInput {...textArea.descricaoUsuario} onChange={onChange}/>
+                        <div className="btnEditarDados">
+                            <Button variant="contained" type="submit">
+                                <ListItemIcon>
+                                    <SaveOutlinedIcon /> Salvar Alterações
+                                </ListItemIcon>
+                            </Button>
+                        </div>
+                    </form>
                 </div>
             }
             {itemSelec === 6 &&
@@ -390,13 +572,10 @@ function Perfil() {
                         <h2>Editar Endereço</h2>
                     </div>
 
-                    <Divider />
+                    {/* <Divider />
 
-                    <p></p>
-
-                    <div className="editarDados">
-                        <Form className="formDados">
-
+                    <p></p> */}
+                        {/* <Form className="formDados">
                             <div class="inputsEditarDados2">
                                 <Form.Group className="formEditarDados1">
 
@@ -431,25 +610,32 @@ function Perfil() {
                                     </Form.Label>
                                     <input type="name"></input>
 
-                                    <SelectInput {...selectInputs.estado} onChange={onChange} dataSet={states}></SelectInput>
+                                    <SelectInput {...selectInputs.estado} onChange={onChange} containerStyle={{"width": "100%;"}} dataSet={states}></SelectInput>
                                     <SelectInput {...selectInputs.cidade} onChange={onChange} dataSet={cities}></SelectInput>
 
                                 </Form.Group>
                             </div>
-                        </Form>
-
+                        </Form> */}
+                        <form action="#" className="formContainerInfo" onSubmit={handleSubmit}>
+                        <div className="dados">
+                            <FormInput {...inputs.endereco} onChange={onChange}/>
+                            <FormInput {...inputs.cep} onChange={onChange}/>
+                            <FormInput {...inputs.numero} onChange={onChange}/>
+                            <FormInput {...inputs.complemento} onChange={onChange}/>
+                            <FormInput {...inputs.bairro} onChange={onChange}/>
+                            <SelectInput {...selectInputs.estado} onChange={onChange} dataSet={states}/>
+                            <SelectInput {...selectInputs.cidade} onChange={onChange} dataSet={cities}/>
+                        </div>
                         <div className="btnEditarDados">
-                            <Button variant="contained">
+                            <Button variant="contained" type="submit">
                                 <ListItemIcon>
                                     <SaveOutlinedIcon /> Salvar Alterações
                                 </ListItemIcon>
                             </Button>
                         </div>
-
-                    </div>
+                    </form>
                 </div>
             }
-
         </div>
     )
 }

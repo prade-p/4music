@@ -4,7 +4,6 @@ import Logo from "../../images/logo-removebg-preview.png";
 import { BsPerson } from "react-icons/bs";
 import { MdLogout } from "react-icons/md";
 import { Dropdown } from "react-bootstrap";
-import Lupa from "../../images/pesquisa.png";
 import SearchBar from "../SearchBar";
 import { logout } from "../../services/auth";
 

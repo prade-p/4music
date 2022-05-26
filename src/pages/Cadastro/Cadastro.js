@@ -139,24 +139,6 @@ function Cadastro() {
             isLastForm: true,
             value: values.bairro
         },
-        cidade: {
-            name: "cidade",
-            type: "text",
-            label: "Cidade*",
-            errorMessage: "Campo obrigatório",
-            required: true,
-            isLastForm: false,
-            value: values.cidade
-        },
-        estado: {
-            name: "estado",
-            type: "text",
-            label: "Estado*",
-            errorMessage: "Campo obrigatório",
-            required: true,
-            isLastForm: false,
-            value: values.estado
-        },
         telefone: {
             name: "telefone",
             type: "text",
@@ -230,7 +212,8 @@ function Cadastro() {
             window.location.href = "/login";
         })
     };
-    const onChange = (e) => {  
+
+    function onChange(e)  {  
         const {name, value} = e.target;
         setValues({...values, [name]: value});
     }
@@ -241,12 +224,12 @@ function Cadastro() {
                 <h1 className="titulo">Registre-se</h1>
                 <form action="#" className="formContainer" onSubmit={handleSubmit}>
                     <div className="secaoForms">
-                        {!hasEmailInDataBase && 
-                        <Alert variant="danger">E-mail já cadastrado.</Alert>
+                    {hasEmailInDataBase && 
+                            <Alert variant="danger">E-mail já cadastrado.</Alert>
                         }
                         <h4 className="tituloSecao">Dados Cadastrais</h4>
                         <div className="dados">
-                            <FormInput {...inputs.name} onChange={onChange}/>
+                        <FormInput {...inputs.name} onChange={onChange}/>
                             <FormInput {...inputs.email} onChange={onChange}/>
                             <FormInput {...inputs.senha} onChange={onChange}/>
                             <FormInput {...inputs.senhaConf} onChange={onChange}/>
@@ -256,13 +239,13 @@ function Cadastro() {
                     <div className="secaoForms">
                         <h4 className="tituloSecao">Descrição Pessoal</h4>
                         <div className="dadosDescricao">
-                            <TextAreaInput {...textArea.descricaoUsuario} onChange={onChange}/>
+                            <TextAreaInput {...textArea.descricaoUsuario} onChange={onChange}/> 
                         </div>
                     </div>
                     <div className="secaoForms">
                         <h4 className="tituloSecao">Endereço</h4>
                         <div className="dados">
-                            <FormInput {...inputs.endereco} onChange={onChange}/>
+                        <FormInput {...inputs.endereco} onChange={onChange}/>
                             <FormInput {...inputs.cep} onChange={onChange}/>
                             <FormInput {...inputs.numero} onChange={onChange}/>
                             <FormInput {...inputs.complemento} onChange={onChange}/>

@@ -7,7 +7,6 @@
     align-items: center;
     transition: transform 200ms ease-in;
     max-width: 16rem;
-    height: 25rem !important;
 }
 
 .card-body {

@@ -51,6 +51,11 @@
     width: 45%;
 }
 
+.descricao {
+    flex-wrap: wrap;
+    overflow-x: hidden;
+}
+
 .containerDescricao {
     display: flex;
     flex-direction: column;

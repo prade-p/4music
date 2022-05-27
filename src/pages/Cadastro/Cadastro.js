@@ -193,25 +193,27 @@ function Cadastro() {
         },
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
         const formValues = Object.fromEntries(data.entries());
         const {name, senha, email, descricaoUsuario, telefone, endereco, cep, numero, complemento, bairro, estado, cidade} = formValues;
         const enderecoCompleto = `${endereco} - ${bairro}, n° ${numero}, ${cidade} - ${estado}, CEP ${cep}.${complemento && ` Complemento: ${complemento}.`}`
-        
+       
         const usuario = {nome: name,  password: senha, email, descricao: descricaoUsuario, endereco: enderecoCompleto, telefone};
-        api.post("/usuario", usuario ).then(response => {
-            if (response.status >= 400) {
-                setHasEmailInDataBase(true);
-                values.email = "";
-                return;
-            }
+       
+        try {
+            await api.post("/usuario", usuario );
             setHasEmailInDataBase(false);
-            alert("Logado com sucesso.")
+            alert("Cadastrado com sucesso!")
             window.location.href = "/login";
-        })
+        } catch (e) {
+            setHasEmailInDataBase(true);
+            values.email = "";
+            console.log(e);
+        }
     };
+
 
     function onChange(e)  {  
         const {name, value} = e.target;

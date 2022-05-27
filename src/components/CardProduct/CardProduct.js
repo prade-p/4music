@@ -8,7 +8,8 @@ function CardProduct({produto_id, descricao, imagem, preco, style}) {
 
    const usuario_id = sessionStorage.getItem('usuario_id');
     
-    useEffect(() => {     
+    useEffect(() => {  
+        if (usuario_id === null) return;   
         api.get(`/produto_usuario/${usuario_id}/${produto_id}`).then((response) => {
             
             setFavoritado( response.data );

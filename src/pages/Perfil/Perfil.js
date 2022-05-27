@@ -230,7 +230,7 @@ function Perfil() {
         api.get(`/produto_usuario/${usuario_id}`).then((response) => {
             setDados(response.data);
         });
-      }, []);
+      }, [dados]);
 
     function SelecItem(index) {
         if (index === 4) {
@@ -391,8 +391,8 @@ function Perfil() {
                             <div className="nomeDado">
                                 Descrição
                             </div>
-                            <div className="conteudoDado">
-                                {usuario?.descricao}
+                            <div className="conteudoDado descricao">
+                                {usuario?.descricao} 
                             </div>
                         </div>
 

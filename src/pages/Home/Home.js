@@ -6,6 +6,9 @@ import { MdLocationOn } from "react-icons/md";
 import { BiTimeFive } from "react-icons/bi";
 import Localizacao from "../../images/loc.png";
 import Guitarra from "../../images/electric-guitar-1736292.jpg";
+import bateria from "../../images/bateria.jpeg";
+import violao1 from "../../images/violao1.jpeg";
+import violao2 from "../../images/violao2.jpeg";
 import { Carousel } from "react-bootstrap";
 import "./Home.css";
 
@@ -15,8 +18,12 @@ function Home() {
 
   useEffect(() => {
     api.get("/produto").then((response) => {
-      setDados(response.data);
-      console.log(dados);
+      const data = response.data;
+      const cordas = data.filter(produto => produto.categoria === "cordas").slice(0, 4);
+      const audio = data.filter(produto => produto.categoria === "audio").slice(0, 1);
+      const teclas = data.filter(produto => produto.categoria === "teclas").slice(0, 3);
+      const percussao = data.filter(produto => produto.categoria === "percussao").slice(1, 3);
+      setDados([...cordas, ...audio, teclas[0], teclas[2], ...percussao]);
     });
   }, []);
 
@@ -66,16 +73,20 @@ function Home() {
     <div className="home-container">
       <div className="carousel-container">
         <Carousel>
-          <Carousel.Item interval={2000}>
+          <Carousel.Item interval={1500}>
             <img className="d-block w-100" src={Guitarra} alt="First slide" />
             <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={2000}>
-            <img className="d-block w-100" src={Guitarra} alt="Second slide" />
+          <Carousel.Item interval={1500}>
+            <img className="d-block w-100" src={violao1} alt="Second slide" />
             <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
-          <Carousel.Item interval={2000}>
-            <img className="d-block w-100" src={Guitarra} alt="Third slide" />
+          <Carousel.Item interval={1500}>
+            <img className="d-block w-100" src={bateria} alt="Third slide" />
+            <Carousel.Caption></Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item interval={1500}>
+            <img className="d-block w-100" src={violao2} alt="Third slide" />
             <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
         </Carousel>

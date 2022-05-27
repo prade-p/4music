@@ -22,7 +22,9 @@ export default function Header() {
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item href="/login">Login</Dropdown.Item>
-            <Dropdown.Item href="/">Logout</Dropdown.Item>
+            <Dropdown.Item href="/" onClick={(e) => {
+              logout();
+            }}>Logout</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item href="/teclas">Teclas</Dropdown.Item>
             <Dropdown.Item href="/cordas">Cordas</Dropdown.Item>

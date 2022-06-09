@@ -1,0 +1,211 @@
+.page {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-bottom: 15%;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 90%;
+    max-width: 1460px;
+    margin-inline: auto;
+}
+
+.containerMenuPerfil {
+    width: 100%;
+    max-width: 360px;
+    font-style: normal;
+}
+
+.Mui-selected {
+    background-color: #FFD100 !important;
+}
+
+.containerPerfil {
+    width: 100%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+
+    border: 1.5px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.tituloContainerPerfil {
+    font-family: Montserrat;
+    font-size: 24px;
+}
+
+/*-------------------------------------------------MENU CONTA----------------------------------------------*/
+
+.dadosConta {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.containerDados {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.descricao {
+    flex-wrap: wrap;
+    overflow-x: hidden;
+}
+
+.containerDescricao {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.nomeDado {
+    font-family: Montserrat;
+    font-size: 16px;
+}
+
+.conteudoDado {
+    font-family: Inter;
+    font-size: 16px;
+    color: #7f7676;
+    font-weight: bold;
+}
+
+.btnEditarDados{
+    display: flex;
+    justify-content: center;
+    max-height: 5%;
+    margin-top: 15px;
+}
+
+.MuiButton-root {
+    color: #000 !important;
+    background-color: #ffd100 !important;
+    border-color: #ffd100 !important;
+
+    font-family: Montserrat !important;
+    font-weight: bold !important;
+}
+
+.formDados{
+    display: flex;
+    flex-direction: row;
+}
+
+.labelEditarDados{
+    font-family: Inter !important;
+    color: black !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+}
+
+.inputsEditarDados1 {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    padding: 2%;
+}
+
+.inputsEditarDados2 {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    padding: 2%;
+}
+
+.inputsEditarDescricao {
+    padding: 2%;
+}
+
+.inputsEditarDados1 input{
+    border: 1px solid black !important;
+}
+
+.inputsEditarDados2 input{
+    border: 1px solid black !important;
+}
+
+.textareaDescricao{
+    border: 1px solid black !important;
+    border-radius: 5px !important;
+    min-height: 100px;
+    width: 100%;
+
+}
+
+.inputsEditarDados1 input:focus, .inputsEditarDados1 input:active{
+    border: 1.5px solid #FFD100 !important;
+}
+
+.inputsEditarDados2 input:focus, .inputsEditarDados2 input:active{
+    border: 1.5px solid #FFD100 !important;
+}
+
+.inputsEditarDescricao textarea:focus, .inputsEditarDescricao textarea:active{
+    border: 1.5px solid #FFD100 !important;
+}
+
+.formContainerInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*-------------------------------------------------MENU ENDEREÇO----------------------------------------------*/
+
+.dadosEndereco{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerDadosEndereco{
+    display: flex;
+    flex-direction: column;
+}
+
+/*label{
+    font-family: Inter !important;
+    color: black !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+}*/
+
+
+
+/*-------------------------------------------------MENU LISTA DESEJO----------------------------------------------*/
+
+.listCardDesejo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5vh;
+    margin-bottom: 7vh;
+    width: 100%;
+    margin-inline: auto;
+    flex-wrap: wrap;
+    row-gap: 7vh;
+}
+
+/*------------------------------------------------- SAIR ----------------------------------------------*/
+
+
+@media screen and (max-width: 1100px){
+    .page {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 1300px){
+    .dadosEndereco {
+        flex-direction: column;
+    }
+}

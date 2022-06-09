@@ -1,0 +1,67 @@
+.card {
+    overflow: hidden;
+    border-radius: 15px !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 200ms ease-in;
+    max-width: 16rem;
+}
+
+.card-body {
+    padding: 1rem 0 0 0 !important;
+}
+
+.card-heart-icon {
+    border: none;
+    background: none;
+    cursor: pointer;
+    position: absolute;
+    right: 5%;
+}
+
+.card-heart-icon:hover {  
+    color: #FF9F1C; 
+} 
+
+.card-img {
+    height: 12rem;
+    width: 100%;
+    object-fit: contain;
+}
+
+.card-description {
+    padding: 0 1rem;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.card-price {
+    text-align: center;
+    color: #FF9F1C;
+    font-weight: 700;
+}
+
+.card-button {
+    height: 5vh;
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    margin: 1rem;
+    border: 2px solid #FF9F1C;
+    background-color: #FF9F1C;
+    color: black;
+    border-radius: 100px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-button:hover {
+    color: white;
+    transform: scale(1.02);
+}
+

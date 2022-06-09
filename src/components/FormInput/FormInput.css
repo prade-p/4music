@@ -1,0 +1,53 @@
+.formInput{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 2 - 20px)
+}
+
+input {
+    width: 100%;
+    height: 45px;
+    padding: 15px !important;
+    margin: 10px 0 !important;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid gray;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+label {
+    font-size: 16px;
+    color: gray;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+span {
+    font-size: 12px;
+    padding: 3px;
+    color: red;
+    display: none;
+}
+
+input:invalid[focused="true"]{
+    border: solid #FFD100;
+}
+
+input:invalid[focused="true"] ~ span {
+    display: block;
+}
+
+input:focus,
+input:valid {
+    border-color: black;
+}
+
+
+@media (max-width: 540px) {
+    .formInput {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+}
